@@ -1,0 +1,73 @@
+TITLE Saltos Condicionales
+
+;DESCRPICIÓN
+;Objetivo: abordar a la instruccion ADD como parte de las instrucciones 
+; de Transferencia de datos 
+; Mtro. Alejandro Garcia
+; Autore(s): Escalante Figueroa Pablo Angel
+; Semestre: 8vo Semestre ISC
+;FIN DESCRIPCIÓN
+
+INCLUDE Irvine32.inc
+
+.data
+; Área de Declaración de Variables
+
+cadena_1_p28 db "Mensaje 1",0
+cadena_2_p28 db "Mensaje 2",0
+cadena_3_p28 db "Mensaje 3",0
+cadena_4_p28 db "Mensaje 4",0
+
+
+.code
+
+menu21 PROC
+
+;Lógica del Programa
+
+; NO EXISTE CONDICION PREVIA QUE DEBA CUMPLIRSE PARA
+; EFECTUARSE EL SALTO EN ESTE SENTIDO, SIEMPRE SE EJECUTA
+; EL SALTO
+;
+; TIPO_SALTO ubi ;donde ubi es la etiqueta asociada a la ubicacion destino del salto
+				 ;tipo_salto es el tipo de salto que comprueba una cindicion en particular
+
+;DEBE REVISARSE EL REGISTRO DE BANDERAS PARA COMPROBAR SI SE CUMPLE O NO CON UNA CONDICION
+
+MOV EAX,10
+
+CALL DUMPREGS
+
+CMP EAX,12 ; COMPARA SI DOS OPERANDOS SON IGUALES O SI
+		   ; UNO ES MAYOR O MENOR QUE EL OTRO
+			; LA COMPARACION SE REALIZA APLICANDO UNA RESTA ENTRE LOS
+			; OPERANDOS, QUE NO MODIFICA LOS OPERANDOS, SIN EMBARGO,
+			; SI MODIFICA A LAS BANDERAS
+
+CALL DUMPREGS
+
+CMP EAX,10  ;REGISTRO DE VANDERAS CF ACARREO SF SIGNO OF 0 ZE AUXILIAR PF PARIDAD
+			;NO SINTERESA EL SIGNO SF Y ZE SI SE TIENE EL 0
+
+call dumpregs ; SI DA 1 ES NEGATIVO, 0 ES POSITIVO EN SF
+			  ; EN ZE SI ES 1 SIGNIFICA QUE ES 0, ES DECIR 10-10 ES 0
+
+
+CMP EAX,5
+CALL DUMPREGS ; DA 0 PORQUE SF Y ZF 0
+			  ; EL RESULTADO NO FUE ZERO
+
+	exit 
+
+	menu21 ENDP
+	END menu21
+
+
+;UNIDAD 2:
+
+;TAREA 1 (PRACTICAS1): PROGRAMAS EN DOCUMENTACION(PENDIENTE) CON SU VIDEO
+;TAREA 2 REGISTRO DE BANDERAS Y BANDERAS MAS COMUNES
+;TAREA 3 SALTOS CONDICIONALES CON SIGNO
+;TAREA 4 SALTOS CONDICIONALES SIN SIGNO
+
+;VARIACIONES AL ESCRIBIRLOS CON SIGNO
