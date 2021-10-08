@@ -95,3 +95,5 @@ rest_p27 db "La potencia es: ", 0
 	main27 ENDP
 	
 	END main27
+
+	;TAREA (PROGRAMA) - DETERMINAR SI UN NUMERO ES PRIMO O NO

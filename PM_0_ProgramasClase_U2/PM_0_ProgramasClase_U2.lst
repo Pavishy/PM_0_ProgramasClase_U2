@@ -1,21 +1,12 @@
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    09/23/21 23:23:59
-Saltos Condicionale					     Page 1 - 1
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/07/21 13:45:04
+MASM Maquina de Refresco				     Page 1 - 1
 
 
-				TITLE Saltos Condicionales
+				TITLE MASM Maquina de Refrescos
 
-				;DESCRPICIÓN 
-				;Objetivo: Explicación
-				;
-				; Autore(s):
-				;         Mtro. Alejandro Garcia
-				;		  Su Nombre.! 
-				;         
+				; Description: Proyecto final de la unidad 2
 
-				; Semestre: 8vo Semestre ISC 
-				;FIN DESCRIPCIÓN
-
-				INCLUDE Irvine32.inc  
+				INCLUDE Irvine32.inc
 			      C ; Include file for Irvine32.lib             (Irvine32.inc)
 			      C 
 			      C ;OPTION CASEMAP:NONE		; optional: make identifiers case-sensitive
@@ -33,102 +24,391 @@ Microsoft (R) Macro Assembler Version 14.29.30133.0	    09/23/21 23:23:59
 			      C .NOLIST
 			      C .LIST
 			      C 
-
-				;calculo de la potencia (y) de un numero (x) ->> x^y 
-				;ejemplo si x = 2, y = 3  -> potencia =  2 * 2 * 2
-
  00000000			.data
-				; Área de Declaración de Variables
- 00000000 44 61 6D 65 20	msjx_p27 db "Dame el valor de x: ", 0 
-	   65 6C 20 76 61
-	   6C 6F 72 20 64
-	   65 20 78 3A 20
+
+ 00000000 5B 5F 5F 5F 5F	D1 BYTE "[_______________________________________]" ,0
+	   5F 5F 5F 5F 5F
+	   5F 5F 5F 5F 5F
+	   5F 5F 5F 5F 5F
+	   5F 5F 5F 5F 5F
+	   5F 5F 5F 5F 5F
+	   5F 5F 5F 5F 5F
+	   5F 5F 5F 5F 5F
+	   5D 00
+
+ 0000002A 7C 20 31 2E 20	D2 BYTE "| 1. JUGO BONIG 18 PESOS                |" ,0
+	   4A 55 47 4F 20
+	   42 4F 4E 49 47
+	   20 31 38 20 50
+	   45 53 4F 53 20
+	   20 20 20 20 20
+	   20 20 20 20 20
+	   20 20 20 20 20
+	   7C 00
+ 00000054 7C 20 32 2E 20	D3 BYTE "| 2. REFRESCO ESCUIS DE HIERRO 30 PESOS |" ,0 
+	   52 45 46 52 45
+	   53 43 4F 20 45
+	   53 43 55 49 53
+	   20 44 45 20 48
+	   49 45 52 52 4F
+	   20 33 30 20 50
+	   45 53 4F 53 20
+	   7C 00
+ 0000007E 7C 20 33 2E 20	D4 BYTE "| 3. FANTA DE FRESA 20 PESOS            |" ,0
+	   46 41 4E 54 41
+	   20 44 45 20 46
+	   52 45 53 41 20
+	   32 30 20 50 45
+	   53 4F 53 20 20
+	   20 20 20 20 20
+	   20 20 20 20 20
+	   7C 00
+ 000000A8 7C 20 34 2E 20	D5 BYTE "| 4. JARRITO TUTIFRUTI 20 PESOS         |" ,0
+	   4A 41 52 52 49
+	   54 4F 20 54 55
+	   54 49 46 52 55
+	   54 49 20 32 30
+	   20 50 45 53 4F
+	   53 20 20 20 20
+	   20 20 20 20 20
+	   7C 00
+
+ 000000D2 41 71 75 69 20	item1 BYTE "Aqui esta tu: JUGUITO DEL BOING DE GUAYABA",0
+	   65 73 74 61 20
+	   74 75 3A 20 4A
+	   55 47 55 49 54
+	   4F 20 44 45 4C
+	   20 42 4F 49 4E
+	   47 20 44 45 20
+	   47 55 41 59 41
+	   42 41 00
+ 000000FD 41 71 75 69 20	item2 BYTE "Aqui esta tu: REFRESCO DE HIERRO SABOR VAINILLA",0
+	   65 73 74 61 20
+	   74 75 3A 20 52
+	   45 46 52 45 53
+	   43 4F 20 44 45
+	   20 48 49 45 52
+	   52 4F 20 53 41
+	   42 4F 52 20 56
+	   41 49 4E 49 4C
+	   4C 41 00
+ 0000012D 41 71 75 69 20	item3 BYTE "Aqui esta tu: REFRESCO DE FRESA DE FANTA",0
+	   65 73 74 61 20
+	   74 75 3A 20 52
+	   45 46 52 45 53
+	   43 4F 20 44 45
+	   20 46 52 45 53
+	   41 20 44 45 20
+	   46 41 4E 54 41
 	   00
- 00000015 44 61 6D 65 20	msjy_p27 db "Dame el valor de y: ", 0
-	   65 6C 20 76 61
-	   6C 6F 72 20 64
-	   65 20 79 3A 20
+ 00000156 41 71 75 69 20	item4 BYTE "Aqui esta tu: REFRESCO DE JARRITO CON SABOR A FRUTOS ROJOS",0
+	   65 73 74 61 20
+	   74 75 3A 20 52
+	   45 46 52 45 53
+	   43 4F 20 44 45
+	   20 4A 41 52 52
+	   49 54 4F 20 43
+	   4F 4E 20 53 41
+	   42 4F 52 20 41
+	   20 46 52 55 54
+	   4F 53 20 52 4F
+	   4A 4F 53 00
+
+ 00000191 50 6F 72 20 66	str1 BYTE "Por favor ingrese su dinero: ",0
+	   61 76 6F 72 20
+	   69 6E 67 72 65
+	   73 65 20 73 75
+	   20 64 69 6E 65
+	   72 6F 3A 20 00
+ 000001AF 31 30 20 50 65	str2 BYTE "10 Pesos: ",0
+	   73 6F 73 3A 20
 	   00
- 0000002A 4C 61 20 70 6F	rest_p27 db "La potencia es: ", 0 
-	   74 65 6E 63 69
-	   61 20 65 73 3A
-	   20 00
+ 000001BA 32 30 20 50 65	str3 BYTE "20 Pesos: ",0
+	   73 6F 73 3A 20
+	   00
+ 000001C5 35 30 20 50 65	str4 BYTE "50 Pesos: ",0
+	   73 6F 73 3A 20
+	   00
+ 000001D0 44 69 6E 65 72	str5 BYTE "Dinero total ingresado: ",0
+	   6F 20 74 6F 74
+	   61 6C 20 69 6E
+	   67 72 65 73 61
+	   64 6F 3A 20 00
+ 000001E9 50 6F 72 20 66	str6 BYTE "Por favor elija una bebida: ",0
+	   61 76 6F 72 20
+	   65 6C 69 6A 61
+	   20 75 6E 61 20
+	   62 65 62 69 64
+	   61 3A 20 00
+ 00000206 45 73 74 65 20	str7 BYTE "Este es tu cambio: ",0
+	   65 73 20 74 75
+	   20 63 61 6D 62
+	   69 6F 3A 20 00
+ 0000021A 47 52 41 43 49	str8 BYTE "GRACIAS! ", 0
+	   41 53 21 20 00
+ 00000224 51 75 69 65 72	q1 BYTE "Quieres comprar otro articulo?? (SI:0 / NO: 1) : ",0
+	   65 73 20 63 6F
+	   6D 70 72 61 72
+	   20 6F 74 72 6F
+	   20 61 72 74 69
+	   63 75 6C 6F 3F
+	   3F 20 28 53 49
+	   3A 30 20 2F 20
+	   4E 4F 3A 20 31
+	   29 20 3A 20 00
+ 00000256 A1 A1 A1 45 4C	sry BYTE "¡¡¡EL DINERO QUE INGRESO NO ES SUFICIENTE !!! INTÉNTALO DE NUEVO !",0
+	   20 44 49 4E 45
+	   52 4F 20 51 55
+	   45 20 49 4E 47
+	   52 45 53 4F 20
+	   4E 4F 20 45 53
+	   20 53 55 46 49
+	   43 49 45 4E 54
+	   45 20 21 21 21
+	   20 49 4E 54 C9
+	   4E 54 41 4C 4F
+	   20 44 45 20 4E
+	   55 45 56 4F 20
+	   21 00
+ 00000299 20 50 65 73 6F	cent BYTE " Pesos",0
+	   73 00
 
- 00000000			.code
-					
- 00000000				main27 PROC	
-						;Lógica del Programa
+ 000002A0 00000000		flavour DWORD 0
+ 000002A4 00000000		input1 DWORD 0
+ 000002A8 00000000		input2 DWORD 0
+ 000002AC 00000000		input3 DWORD 0
 
- 00000000  BA 00000000 R			mov edx, offset msjx_p27
- 00000005  E8 00000000 E			call writestring    ; se despliega el mensaje para pedir x
+ 000002B0 00000000		total DWORD 0
+ 000002B4 00000000		change DWORD 0
+ 000002B8 00000000		choice DWORD 0
 
- 0000000A  E8 00000000 E			call readint   ; almacena en eax el valor ingresado por el usuario 
+ 000002BC 0000000A		ten DWORD 10
+ 000002C0 00000014		twenty DWORD 20
+ 000002C4 00000032		fifty DWORD 50
 
- 0000000F  E8 00000000 E			call crlf ; salto de línea
+ 000002C8 00000012		cost1 DWORD 18
+ 000002CC 0000001E		cost2 DWORD 30
+ 000002D0 00000014		cost3 DWORD 20
+ 000002D4 00000014		cost4 DWORD 20
 
- 00000014  8B D8				mov ebx, eax  ; respalda valor de eax en ebx
-						
-						;;;;;;;;;;;;;;;;;;;;;;;
+ 00000000			.code 
+ 00000000			mainproj PROC 
 
- 00000016  BA 00000015 R			mov edx, offset msjy_p27
- 0000001B  E8 00000000 E			call writestring
-						
- 00000020  E8 00000000 E			call readint
+ 00000000			L1: 
+ 00000000  BA 00000000 R		mov edx, OFFSET D1
+ 00000005  E8 00000000 E		call WriteString 
+ 0000000A  E8 00000000 E		call crlf
+ 0000000F  BA 0000002A R		mov edx, OFFSET D2
+ 00000014  E8 00000000 E		call WriteString 
+ 00000019  E8 00000000 E		call crlf
+ 0000001E  BA 00000054 R		mov edx, OFFSET D3
+ 00000023  E8 00000000 E		call WriteString 
+ 00000028  E8 00000000 E		call crlf
+ 0000002D  BA 0000007E R		mov edx, OFFSET D4
+ 00000032  E8 00000000 E		call WriteString 
+ 00000037  E8 00000000 E		call crlf
+ 0000003C  BA 000000A8 R		mov edx, OFFSET D5
+ 00000041  E8 00000000 E		call WriteString 
+ 00000046  E8 00000000 E		call crlf
+ 0000004B  BA 00000000 R		mov edx, OFFSET D1
+ 00000050  E8 00000000 E		call WriteString 
+ 00000055  E8 00000000 E		call crlf
+ 0000005A  EB 00			jmp L2
 
- 00000025  E8 00000000 E			call crlf
+ 0000005C			L2:
+ 0000005C  BA 00000191 R		mov edx, OFFSET str1
+ 00000061  E8 00000000 E		call WriteString 
+ 00000066  E8 00000000 E		call crlf
 
-						;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ 0000006B  BA 000001AF R		mov edx, OFFSET str2
+ 00000070  E8 00000000 E		call WriteString 
+ 00000075  E8 00000000 E		call ReadDec
+ 0000007A  A3 000002A4 R		mov input1, eax 
 
-						;; para este punto eax contiene la potencia y ecx contiene al numero
+ 0000007F  A1 000002A4 R		mov eax, input1
+ 00000084  F7 25 000002BC R		mul ten
+ 0000008A  A3 000002B0 R		mov total, eax
+ 0000008F  E8 00000000 E		call crlf
 
-						;;eax  = potencia = cantidad de veces que el ciclo se tiene que repetir
+ 00000094  BA 000001BA R		mov edx, OFFSET str3
+ 00000099  E8 00000000 E		call WriteString
+ 0000009E  E8 00000000 E		call ReadDec
+ 000000A3  A3 000002A8 R		mov input2, eax
 
-						;;Consideraciones: Dentro del ciclo, se necesita hacer multiplicaciones
-						; y las multiplicaciones necesitan que se trabaje al menos con el registro eax
-						; debido a esto, conviene guardar la potencia en algun otro registro o variable
+ 000000A8  A1 000002A8 R		mov eax,input2
+ 000000AD  F7 25 000002C0 R		mul twenty
+ 000000B3  01 05 000002B0 R		add total, eax
+ 000000B9  E8 00000000 E		call crlf
 
-						; en este programa: posibles registros > ebx o edx
+ 000000BE  BA 000001C5 R		mov edx, OFFSET str4 
+ 000000C3  E8 00000000 E		call WriteString
+ 000000C8  E8 00000000 E		call ReadDec
+ 000000CD  A3 000002AC R		mov input3, eax 
 
- 0000002A  8B C8				mov ecx, eax  ; la potencia ahora esta en ecx
+ 000000D2  A1 000002AC R		mov eax,input3
+ 000000D7  F7 25 000002C4 R		mul fifty
+ 000000DD  01 05 000002B0 R		add total, eax
+ 000000E3  E8 00000000 E		call crlf
 
- 0000002C  8B C3				mov eax, ebx ; posicionar el numero en eax , que será el registro que nos permitirá
-						; hacer las multiplicaciones
+ 000000E8  BA 000001D0 R		mov edx, OFFSET str5
+ 000000ED  E8 00000000 E		call WriteString
+ 000000F2  A1 000002B0 R		mov eax, total 
+ 000000F7  E8 00000000 E		call WriteDec
+ 000000FC  BA 00000299 R		mov edx, OFFSET cent
+ 00000101  E8 00000000 E		call WriteString 
+ 00000106  E8 00000000 E		call crlf
+ 0000010B  EB 00			jmp FLAV
 
- 0000002E  49					dec ecx  ; 
+ 0000010D			FLAV:
+ 0000010D  BA 000001E9 R		mov edx, OFFSET str6
+ 00000112  E8 00000000 E		call WriteString
+ 00000117  E8 00000000 E		call ReadDec
+ 0000011C  A3 000002A0 R		mov flavour, eax 
 
- 0000002F					ciclo:
- 0000002F  E8 00000000 E				call writedec	
- 00000034  E8 00000000 E				call crlf
+ 00000121  83 3D 000002A0 R		cmp flavour,1
+	   01
+ 00000128  74 25			jz F1
+ 0000012A  83 3D 000002A0 R		cmp flavour,2
+	   02
+ 00000131  74 72			jz F2
+ 00000133  83 3D 000002A0 R		cmp flavour,3
+	   03
+ 0000013A  0F 84 000000BB		jz F3
+ 00000140  83 3D 000002A0 R		cmp flavour,4
+	   04
+ 00000147  0F 84 00000101		jz F4
 
+ 0000014D  EB BE			jmp FLAV
 
- 00000039  F7 E3					mul ebx  ; multiplicar eax con ebx, siendo ebx el numero de origen
+ 0000014F			F1:
+ 0000014F  83 3D 000002B0 R		cmp total, 18
+	   12
+ 00000156  7D 06			jge Cal1
+ 00000158  0F 8C 00000172		jl SR
 
+ 0000015E			Cal1:
+ 0000015E  BA 000000D2 R		mov edx, OFFSET item1
+ 00000163  E8 00000000 E		call WriteString
+ 00000168  E8 00000000 E		call crlf
+ 0000016D  A1 000002B0 R		mov eax, total
+ 00000172  2B 05 000002C8 R		sub eax, cost1 
+ 00000178  A3 000002B4 R		mov change, eax
 
-							;sub ecx, 1  ;edx--
- 0000003B  49						dec ecx     ; edx--
+ 0000017D  BA 00000206 R		mov edx, OFFSET str7
+ 00000182  E8 00000000 E		call WriteString 
+ 00000187  A1 000002B4 R		mov eax, change
+ 0000018C  E8 00000000 E		call WriteDec
+ 00000191  BA 00000299 R		mov edx, OFFSET cent
+ 00000196  E8 00000000 E		call WriteString 
+ 0000019B  E8 00000000 E		call crlf
+ 000001A0  E9 000000F8			jmp ASK
 
- 0000003C  83 F9 00					cmp ecx, 0
- 0000003F  7F EE					jg ciclo
-						
+ 000001A5			F2:
+ 000001A5  83 3D 000002B0 R		cmp total, 30
+	   1E
+ 000001AC  7D 06			jge Cal2
+ 000001AE  0F 8C 0000011C		jl SR
 
- 00000041  BA 0000002A R			mov edx, offset rest_p27
- 00000046  E8 00000000 E			call writestring
+ 000001B4			Cal2:
+ 000001B4  BA 000000FD R		mov edx, OFFSET item2
+ 000001B9  E8 00000000 E		call WriteString
+ 000001BE  E8 00000000 E		call crlf
+ 000001C3  A1 000002B0 R		mov eax, total
+ 000001C8  2B 05 000002CC R		sub eax, cost2 
+ 000001CE  A3 000002B4 R		mov change, eax
 
- 0000004B  E8 00000000 E			call writedec  ;
+ 000001D3  BA 00000206 R		mov edx, OFFSET str7
+ 000001D8  E8 00000000 E		call WriteString 
+ 000001DD  A1 000002B4 R		mov eax, change
+ 000001E2  E8 00000000 E		call WriteDec
+ 000001E7  BA 00000299 R		mov edx, OFFSET cent
+ 000001EC  E8 00000000 E		call WriteString 
+ 000001F1  E8 00000000 E		call crlf
+ 000001F6  E9 000000A2			jmp ASK
 
-						; Tarea: Investigar porque mul modifica el registro edx
+ 000001FB			F3:
+ 000001FB  83 3D 000002B0 R		cmp total, 20
+	   14
+ 00000202  7D 06			jge Cal3
+ 00000204  0F 8C 000000C6		jl SR
 
-						; Tarea (Programa) 
-						; Tarea (Programa)
-						; Tarea (Programa)
-						
-						exit	
-					
- 00000057				main27 ENDP
-					
-					END main27
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    09/23/21 23:23:59
-Saltos Condicionale					     Symbols 2 - 1
+ 0000020A			Cal3:
+ 0000020A  BA 0000012D R		mov edx, OFFSET item3 
+ 0000020F  E8 00000000 E		call WriteString
+ 00000214  E8 00000000 E		call crlf
+ 00000219  A1 000002B0 R		mov eax, total
+ 0000021E  2B 05 000002D0 R		sub eax, cost3 
+ 00000224  A3 000002B4 R		mov change, eax
+
+ 00000229  BA 00000206 R		mov edx, OFFSET str7
+ 0000022E  E8 00000000 E		call WriteString 
+ 00000233  A1 000002B4 R		mov eax, change
+ 00000238  E8 00000000 E		call WriteDec
+ 0000023D  BA 00000299 R		mov edx, OFFSET cent
+ 00000242  E8 00000000 E		call WriteString 
+ 00000247  E8 00000000 E		call crlf
+
+ 0000024C  EB 4F			jmp ASK
+
+ 0000024E			F4:
+ 0000024E  83 3D 000002B0 R		cmp total, 20
+	   14
+ 00000255  7D 02			jge Cal4
+ 00000257  7C 77			jl SR
+
+ 00000259			Cal4:
+ 00000259  BA 00000156 R		mov edx, OFFSET item4
+ 0000025E  E8 00000000 E		call WriteString
+ 00000263  E8 00000000 E		call crlf
+ 00000268  A1 000002B0 R		mov eax, total
+ 0000026D  2B 05 000002D4 R		sub eax, cost4
+ 00000273  A3 000002B4 R		mov change, eax
+
+ 00000278  BA 00000206 R		mov edx, OFFSET str7
+ 0000027D  E8 00000000 E		call WriteString 
+ 00000282  A1 000002B4 R		mov eax, change
+ 00000287  E8 00000000 E		call WriteDec
+ 0000028C  BA 00000299 R		mov edx, OFFSET cent
+ 00000291  E8 00000000 E		call WriteString 
+ 00000296  E8 00000000 E		call crlf
+
+ 0000029B  EB 00			jmp ASK
+
+ 0000029D			ASK: 
+ 0000029D  E8 00000000 E		call crlf
+ 000002A2  BA 00000224 R		mov edx, OFFSET q1 
+ 000002A7  E8 00000000 E		call WriteString
+ 000002AC  E8 00000000 E		call ReadDec
+ 000002B1  A3 000002B8 R		mov choice, eax
+
+ 000002B6  E8 00000000 E		call crlf
+ 000002BB  E8 00000000 E		call crlf
+
+ 000002C0  83 3D 000002B8 R		cmp choice,0
+	   00
+ 000002C7  74 02			jz Continue
+ 000002C9  EB 1E			jmp Stop
+
+ 000002CB			Continue:
+ 000002CB  E9 FFFFFD30			jmp L1
+
+ 000002D0			SR:
+ 000002D0  BA 00000256 R		mov edx, OFFSET sry 
+ 000002D5  E8 00000000 E		call WriteString 
+ 000002DA  E8 00000000 E		call crlf
+ 000002DF  E8 00000000 E		call crlf
+ 000002E4  E9 FFFFFD73			JMP L2
+
+ 000002E9			Stop:
+ 000002E9  BA 0000021A R		mov edx, OFFSET str8 
+ 000002EE  E8 00000000 E		call WriteString 
+ 000002F3  E8 00000000 E		call crlf
+
+				exit
+ 000002FF			mainproj ENDP
+				END mainproj
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/07/21 13:45:04
+MASM Maquina de Refresco				     Symbols 2 - 1
 
 
 
@@ -221,8 +501,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 0000003B Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000057 Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 000002D8 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 000002FF Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -329,8 +609,22 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main27 . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000057 Public STDCALL
-  ciclo  . . . . . . . . . . . .	L Near	 0000002F _TEXT	
+mainproj . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 000002FF Public STDCALL
+  L1 . . . . . . . . . . . . . .	L Near	 00000000 _TEXT	
+  L2 . . . . . . . . . . . . . .	L Near	 0000005C _TEXT	
+  FLAV . . . . . . . . . . . . .	L Near	 0000010D _TEXT	
+  F1 . . . . . . . . . . . . . .	L Near	 0000014F _TEXT	
+  Cal1 . . . . . . . . . . . . .	L Near	 0000015E _TEXT	
+  F2 . . . . . . . . . . . . . .	L Near	 000001A5 _TEXT	
+  Cal2 . . . . . . . . . . . . .	L Near	 000001B4 _TEXT	
+  F3 . . . . . . . . . . . . . .	L Near	 000001FB _TEXT	
+  Cal3 . . . . . . . . . . . . .	L Near	 0000020A _TEXT	
+  F4 . . . . . . . . . . . . . .	L Near	 0000024E _TEXT	
+  Cal4 . . . . . . . . . . . . .	L Near	 00000259 _TEXT	
+  ASK  . . . . . . . . . . . . .	L Near	 0000029D _TEXT	
+  Continue . . . . . . . . . . .	L Near	 000002CB _TEXT	
+  SR . . . . . . . . . . . . . .	L Near	 000002D0 _TEXT	
+  Stop . . . . . . . . . . . . .	L Near	 000002E9 _TEXT	
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -355,6 +649,11 @@ CREATE_ALWAYS  . . . . . . . . .	Number	 00000002h
 CREATE_NEW . . . . . . . . . . .	Number	 00000001h   
 CTRL_MASK  . . . . . . . . . . .	Number	 0000000Ch   
 CreateFile . . . . . . . . . . .	Text   	 CreateFileA
+D1 . . . . . . . . . . . . . . .	Byte	 00000000 _DATA	
+D2 . . . . . . . . . . . . . . .	Byte	 0000002A _DATA	
+D3 . . . . . . . . . . . . . . .	Byte	 00000054 _DATA	
+D4 . . . . . . . . . . . . . . .	Byte	 0000007E _DATA	
+D5 . . . . . . . . . . . . . . .	Byte	 000000A8 _DATA	
 DO_NOT_SHARE . . . . . . . . . .	Number	 00000000h   
 ENABLE_ECHO_INPUT  . . . . . . .	Number	 00000004h   
 ENABLE_LINE_INPUT  . . . . . . .	Number	 00000002h   
@@ -552,10 +851,26 @@ WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
 black  . . . . . . . . . . . . .	Number	 00000000h   
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
+cent . . . . . . . . . . . . . .	Byte	 00000299 _DATA	
+change . . . . . . . . . . . . .	DWord	 000002B4 _DATA	
+choice . . . . . . . . . . . . .	DWord	 000002B8 _DATA	
+cost1  . . . . . . . . . . . . .	DWord	 000002C8 _DATA	
+cost2  . . . . . . . . . . . . .	DWord	 000002CC _DATA	
+cost3  . . . . . . . . . . . . .	DWord	 000002D0 _DATA	
+cost4  . . . . . . . . . . . . .	DWord	 000002D4 _DATA	
 cyan . . . . . . . . . . . . . .	Number	 00000003h   
 exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
+fifty  . . . . . . . . . . . . .	DWord	 000002C4 _DATA	
+flavour  . . . . . . . . . . . .	DWord	 000002A0 _DATA	
 gray . . . . . . . . . . . . . .	Number	 00000008h   
 green  . . . . . . . . . . . . .	Number	 00000002h   
+input1 . . . . . . . . . . . . .	DWord	 000002A4 _DATA	
+input2 . . . . . . . . . . . . .	DWord	 000002A8 _DATA	
+input3 . . . . . . . . . . . . .	DWord	 000002AC _DATA	
+item1  . . . . . . . . . . . . .	Byte	 000000D2 _DATA	
+item2  . . . . . . . . . . . . .	Byte	 000000FD _DATA	
+item3  . . . . . . . . . . . . .	Byte	 0000012D _DATA	
+item4  . . . . . . . . . . . . .	Byte	 00000156 _DATA	
 lightBlue  . . . . . . . . . . .	Number	 00000009h   
 lightCyan  . . . . . . . . . . .	Number	 0000000Bh   
 lightGray  . . . . . . . . . . .	Number	 00000007h   
@@ -563,10 +878,20 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-msjx_p27 . . . . . . . . . . . .	Byte	 00000000 _DATA	
-msjy_p27 . . . . . . . . . . . .	Byte	 00000015 _DATA	
+q1 . . . . . . . . . . . . . . .	Byte	 00000224 _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
-rest_p27 . . . . . . . . . . . .	Byte	 0000002A _DATA	
+sry  . . . . . . . . . . . . . .	Byte	 00000256 _DATA	
+str1 . . . . . . . . . . . . . .	Byte	 00000191 _DATA	
+str2 . . . . . . . . . . . . . .	Byte	 000001AF _DATA	
+str3 . . . . . . . . . . . . . .	Byte	 000001BA _DATA	
+str4 . . . . . . . . . . . . . .	Byte	 000001C5 _DATA	
+str5 . . . . . . . . . . . . . .	Byte	 000001D0 _DATA	
+str6 . . . . . . . . . . . . . .	Byte	 000001E9 _DATA	
+str7 . . . . . . . . . . . . . .	Byte	 00000206 _DATA	
+str8 . . . . . . . . . . . . . .	Byte	 0000021A _DATA	
+ten  . . . . . . . . . . . . . .	DWord	 000002BC _DATA	
+total  . . . . . . . . . . . . .	DWord	 000002B0 _DATA	
+twenty . . . . . . . . . . . . .	DWord	 000002C0 _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   

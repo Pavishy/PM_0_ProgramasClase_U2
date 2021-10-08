@@ -40,7 +40,7 @@ msj4_p25 db "IMPAR", 0
 		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 		;Como: cociente  = eax     residuo = edx , entonces->
 
-		mov edx, 0  ; limpiar el registro para realizar la división sin problemas
+		mov edx, 0  ; limpiar el  c para realizar la división sin problemas
 
 		mov ebx, 2  ; divisor 
 
