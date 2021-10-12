@@ -20,12 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <MASM Include="27_Poto_Parte_Neh.asm" />
+    <MASM Include="Det_sum_2_num_may_ter_num.asm" />
+    <MASM Include="P38_SwitchCaseSimulado.asm" />
     <MASM Include="Proy-DispensadorRefrescos.asm" />
-    <MASM Include="Z-Fibonacci.asm" />
-    <MASM Include="Z-PP1_IMC.asm" />
-    <MASM Include="Z-PP3_Matriz_2x2_Det.asm" />
-    <MASM Include="Z-PP2_Lectura_Numeros_Mayor.asm" />
-    <MASM Include="Z-Num_Primo_No.asm" />
+    <MASM Include="P_37_DetenerCicloUsuario.asm" />
+    <MASM Include="PPT15_Fibonacci.asm" />
+    <MASM Include="PPT13_1_IMC.asm" />
+    <MASM Include="PPT13_3_Matriz_2x2_Det.asm" />
+    <MASM Include="PPT13_2_Lectura_Numeros_Mayor.asm" />
+    <MASM Include="PPT16_Num_Primo_No.asm" />
     <MASM Include="P28_CicloEjemplo.asm" />
     <MASM Include="P29_TablaMultiplicar.asm" />
     <MASM Include="P30_Loop.asm" />
@@ -35,7 +38,7 @@
     <MASM Include="P34_CiclosAnidados_parte3.asm" />
     <MASM Include="P35_UsoVariables.asm" />
     <MASM Include="P36_UsoVariables_parte2.asm" />
-    <MASM Include="Z-PP4_Velocidad_Dist_Tiemp.asm" />
+    <MASM Include="PPT13_4_Velocidad_Dist_Tiemp.asm" />
     <MASM Include="P23_SaltoCondicional_parte3.asm" />
     <MASM Include="P24_SaltosCondicionales.asm" />
     <MASM Include="P21_SaltoCondicional_parte1.asm" />
@@ -57,21 +60,21 @@
     <MASM Include="P25_SaltoCond_Ejemplo.asm" />
     <MASM Include="P26_SaltosComoCiclos.asm" />
     <MASM Include="P2_Mov_Parte2.asm" />
-    <MASM Include="Z-P3TEV_Suma_de_Numeros.asm" />
+    <MASM Include="PPT12_2_Suma_de_Numeros.asm" />
     <MASM Include="P3_Mov_Parte3.asm" />
     <MASM Include="P3_Mov_Parte4.asm" />
-    <MASM Include="Z-P2TEV_Obten_Area _Per_Rec_Base _Altura.asm" />
-    <MASM Include="Z-P4TEV_Trabajador.asm" />
+    <MASM Include="PPT12_3_Obten_Area _Per_Rec_Base _Altura.asm" />
+    <MASM Include="PPT12_4_Trabajador.asm" />
     <MASM Include="P5_ADD.asm" />
     <MASM Include="P6_ADD_part2.asm" />
     <MASM Include="P7_SUB.asm" />
     <MASM Include="P8_MUL.asm" />
     <MASM Include="P9_MUL_part2.asm" />
-    <MASM Include="Z-PTU2_1_Hoja_Presentacion.asm" />
-    <MASM Include="Z-P1TEV_Sum_dob_trip.asm" />
+    <MASM Include="PPT11_Hoja_Presentacion.asm" />
+    <MASM Include="PPT12_1_Sum_dob_trip.asm" />
     <MASM Include="P22_SaltoCondicional_parte2.asm" />
     <MASM Include="P27_Ciclos_Parte2.asm" />
-    <MASM Include="Z-Pares_1_N_Usuario.asm" />
+    <MASM Include="zzzzzzPPT14_Pares_1_N_Usuario.asm" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="..\..\..\..\..\..\Irvine\Lib32\Irvine32_Library\Irvine32.obj" />
@@ -156,7 +159,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EntryPointSymbol> mainproj</EntryPointSymbol>
+      <EntryPointSymbol>mainY</EntryPointSymbol>
       <ImportLibrary>C:\Irvine</ImportLibrary>
     </Link>
     <MASM>
