@@ -34,7 +34,9 @@ cantRefresco1 dword 10
 	main38 PROC	
 		;Lógica del Programa
 
-		continuar:
+		continuar: ;;;;;;INICIO DEL PROGRAMA
+
+		;;;DESPLIGUE DE MENSAJES 
 
 		mov edx, offset msj_p38_pregunta
 		call writestring
@@ -42,8 +44,8 @@ cantRefresco1 dword 10
 		call crlf
 
 		mov edx, offset msj_R1_p38
-		call writestring
-		mov eax, 5 
+		call writestring                 ;MENSAJE DEL REFRESCO 1
+		mov eax, 5                       ;COSTO DEL REFRESCO 1
 		call writedec
 		call crlf
 
@@ -59,8 +61,11 @@ cantRefresco1 dword 10
 		call writedec
 		call crlf
 
-		
-		call readint  ; eax 
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+		call readint  ; eax   ; OPCIÓN DEL USUARIO 
+
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 		cmp eax, 10
 		jnz compararRefresco2
@@ -136,5 +141,3 @@ cantRefresco1 dword 10
 	main38 ENDP
 	
 	END main38
-
-	

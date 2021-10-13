@@ -22,6 +22,12 @@
     <MASM Include="27_Poto_Parte_Neh.asm" />
     <MASM Include="Det_sum_2_num_may_ter_num.asm" />
     <MASM Include="P38_SwitchCaseSimulado.asm" />
+    <MASM Include="PPT17_Sumados_numeros_mayor.asm" />
+    <MASM Include="PPT18_Tabla de multiplicar.asm" />
+    <MASM Include="PPT19_Calificaciones.asm" />
+    <MASM Include="PPT20_Num_Ingresado_Val_Nega.asm" />
+    <MASM Include="PPT21_Val_X_N_Cuantos.asm" />
+    <MASM Include="PPT22_Pares_Impares_Mostrar.asm" />
     <MASM Include="Proy-DispensadorRefrescos.asm" />
     <MASM Include="P_37_DetenerCicloUsuario.asm" />
     <MASM Include="PPT15_Fibonacci.asm" />
@@ -74,6 +80,7 @@
     <MASM Include="PPT12_1_Sum_dob_trip.asm" />
     <MASM Include="P22_SaltoCondicional_parte2.asm" />
     <MASM Include="P27_Ciclos_Parte2.asm" />
+    <MASM Include="P_39_switchAnidados.asm" />
     <MASM Include="zzzzzzPPT14_Pares_1_N_Usuario.asm" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +88,11 @@
   </ItemGroup>
   <ItemGroup>
     <MASM Include="P0_Check.asm">
+      <FileType>Document</FileType>
+    </MASM>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="COPY_Proy-DispensadorRefrescos.asm">
       <FileType>Document</FileType>
     </MASM>
   </ItemGroup>
@@ -159,7 +171,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EntryPointSymbol>mainY</EntryPointSymbol>
+      <EntryPointSymbol>nparimp</EntryPointSymbol>
       <ImportLibrary>C:\Irvine</ImportLibrary>
     </Link>
     <MASM>
