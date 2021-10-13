@@ -3,11 +3,9 @@ TITLE Pedir números hasta que sea ingresado un valor negativo.
 
 ;DESCRPICIÓN 
 ;Objetivo: Lectura de números por consola
-;
 ; Autore(s):
 ;         Mtro. Alejandro Garcia
-;		  Su Nombre.! 
-;         
+;		  Su Nombre.!    
 ; Semestre: 8vo Semestre ISC 
 ;FIN DESCRIPCIÓN
 
@@ -21,16 +19,13 @@ mensaje db "Dame un numero: ", 0
 .code
 
 	valne PROC
-	       
 
 		   ciclo:
 		        mov edx, offset mensaje
 				call writestring
 				call readint
-
 				cmp eax, 0
 				   jl next
-
 				call writedec
 				call crlf
 				call crlf
@@ -39,6 +34,7 @@ mensaje db "Dame un numero: ", 0
 			next:
 			call crlf
 			exit
+
 
 	valne ENDP
 	END valne

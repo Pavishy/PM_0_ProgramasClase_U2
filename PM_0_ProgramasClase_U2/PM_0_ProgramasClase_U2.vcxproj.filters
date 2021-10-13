@@ -35,7 +35,6 @@
     <MASM Include="P25_SaltoCond_Ejemplo.asm" />
     <MASM Include="P26_SaltosComoCiclos.asm" />
     <MASM Include="P27_Ciclos_Parte2.asm" />
-    <MASM Include="27_Poto_Parte_Neh.asm" />
     <MASM Include="PPT13_1_IMC.asm" />
     <MASM Include="PPT13_3_Matriz_2x2_Det.asm" />
     <MASM Include="PPT13_2_Lectura_Numeros_Mayor.asm" />
@@ -59,7 +58,7 @@
     <MASM Include="P_39_switchAnidados.asm" />
     <MASM Include="PPT17_Sumados_numeros_mayor.asm" />
     <MASM Include="PPT18_Tabla de multiplicar.asm" />
-    <MASM Include="PPT19_Calificaciones.asm" />
+    <MASM Include="zzzzzzzzzzPPT19_Calificaciones.asm" />
     <MASM Include="COPY_Proy-DispensadorRefrescos.asm" />
     <MASM Include="PPT20_Num_Ingresado_Val_Nega.asm" />
     <MASM Include="PPT21_Val_X_N_Cuantos.asm" />

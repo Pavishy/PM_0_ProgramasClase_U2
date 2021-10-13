@@ -19,12 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="27_Poto_Parte_Neh.asm" />
     <MASM Include="Det_sum_2_num_may_ter_num.asm" />
     <MASM Include="P38_SwitchCaseSimulado.asm" />
     <MASM Include="PPT17_Sumados_numeros_mayor.asm" />
     <MASM Include="PPT18_Tabla de multiplicar.asm" />
-    <MASM Include="PPT19_Calificaciones.asm" />
+    <MASM Include="zzzzzzzzzzPPT19_Calificaciones.asm" />
     <MASM Include="PPT20_Num_Ingresado_Val_Nega.asm" />
     <MASM Include="PPT21_Val_X_N_Cuantos.asm" />
     <MASM Include="PPT22_Pares_Impares_Mostrar.asm" />
@@ -171,7 +170,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EntryPointSymbol>nparimp</EntryPointSymbol>
+      <EntryPointSymbol>calift</EntryPointSymbol>
       <ImportLibrary>C:\Irvine</ImportLibrary>
     </Link>
     <MASM>

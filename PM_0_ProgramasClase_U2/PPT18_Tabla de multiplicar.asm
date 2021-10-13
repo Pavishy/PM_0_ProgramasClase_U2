@@ -57,12 +57,14 @@ tabla PROC
        cmp ecx, 11
         jl ciclo
 
+    call crlf
     mov eax, error
     mov edx, offset mserror
     call writestring
     call writedec
     mov edx, offset mserror1
     call writestring
+    call crlf
 
 exit
 tabla ENDP

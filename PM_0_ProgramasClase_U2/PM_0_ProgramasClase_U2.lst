@@ -1,16 +1,15 @@
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/12/21 19:06:57
-<Pedir N números e indicar cuantos son pares y cuantos no so  Page 1 - 1
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/13/21 13:06:39
+8Pedir números hasta que sea ingresado un valor negativo     Page 1 - 1
 
 
-				TITLE Pedir N números e indicar cuantos son pares y cuantos no son pares.    
+				TITLE Pedir números hasta que sea ingresado un valor negativo. 
+				;Se imprimirá a todos los números conforme son ingresados a excepción del negativo. 
 
 				;DESCRPICIÓN 
 				;Objetivo: Lectura de números por consola
-				;
 				; Autore(s):
 				;         Mtro. Alejandro Garcia
-				;		  Su Nombre.! 
-				;         
+				;		  Su Nombre.!    
 				; Semestre: 8vo Semestre ISC 
 				;FIN DESCRIPCIÓN
 
@@ -36,82 +35,35 @@ Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/12/21 19:06:57
  00000000			.data
 				; Área de Declaración de Variables
 
- 00000000 49 6E 67 72 65	mensaje db "Ingresa un numero: ", 0
-	   73 61 20 75 6E
-	   20 6E 75 6D 65
-	   72 6F 3A 20 00
- 00000014 44 61 6D 65 20	mensajetotal db "Dame el total de numeros: ",0
-	   65 6C 20 74 6F
-	   74 61 6C 20 64
-	   65 20 6E 75 6D
-	   65 72 6F 73 3A
+ 00000000 44 61 6D 65 20	mensaje db "Dame un numero: ", 0
+	   75 6E 20 6E 75
+	   6D 65 72 6F 3A
 	   20 00
-
- 0000002F 4E 75 6D 65 72	mensajepar db "Numeros pares: ",0
-	   6F 73 20 70 61
-	   72 65 73 3A 20
-	   00
- 0000003F 4E 75 6D 65 72	mensajeimpar db "Numeros imapres: ",0
-	   6F 73 20 69 6D
-	   61 70 72 65 73
-	   3A 20 00
-
- 00000051 00000000		par dword 0
- 00000055 00000000		impar dword 0
-
 
  00000000			.code
 
- 00000000				nparimp PROC
- 00000000  BA 00000014 R		 mov edx, offset mensajetotal
- 00000005  E8 00000000 E		 call writestring
- 0000000A  E8 00000000 E		 call readint 
- 0000000F  8B C8			 mov ecx, eax
-					
- 00000011  BB 00000002			 mov ebx, 2
+ 00000000				valne PROC
+
+ 00000000					   ciclo:
+ 00000000  BA 00000000 R			        mov edx, offset mensaje
+ 00000005  E8 00000000 E					call writestring
+ 0000000A  E8 00000000 E					call readint
+ 0000000F  83 F8 00						cmp eax, 0
+ 00000012  7C 11						   jl next
+ 00000014  E8 00000000 E					call writedec
+ 00000019  E8 00000000 E					call crlf
+ 0000001E  E8 00000000 E					call crlf
+ 00000023  EB DB						jmp ciclo
+
+ 00000025						next:
+ 00000025  E8 00000000 E				call crlf
+							exit
 
 
- 00000016				 ciclo:
- 00000016  BA 00000000 R		      mov edx, offset mensaje
- 0000001B  E8 00000000 E			  call writestring
- 00000020  E8 00000000 E			  call readint
- 00000025  BA 00000000				  mov edx, 0
- 0000002A  F7 F3				  div ebx
-
- 0000002C  83 FA 00				  cmp edx, 0
- 0000002F  74 08				     je Cic_par
- 00000031  FF 05 00000055 R				 inc impar
- 00000037  EB 06				      jmp nextciclo
-
- 00000039						 Cic_par:
- 00000039  FF 05 00000051 R				  inc par
-
-
- 0000003F					 nextciclo:
-					      
- 0000003F  E2 D5			 loop ciclo
-
-
- 00000041  BA 0000002F R		 mov edx, offset mensajepar
- 00000046  E8 00000000 E		 call writestring
- 0000004B  A1 00000051 R		 mov eax, par
- 00000050  E8 00000000 E		 call writedec
-					 
- 00000055  E8 00000000 E		 call crlf
-
- 0000005A  BA 0000003F R		 mov edx, offset mensajeimpar
- 0000005F  E8 00000000 E		 call writestring
- 00000064  A1 00000055 R		 mov eax, impar
- 00000069  E8 00000000 E		 call writedec
-
-					 exit
-
- 00000075				nparimp ENDP
-					END nparimp
-
-
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/12/21 19:06:57
-<Pedir N números e indicar cuantos son pares y cuantos no so  Symbols 2 - 1
+ 00000031				valne ENDP
+					END valne
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/13/21 13:06:39
+8Pedir números hasta que sea ingresado un valor negativo     Symbols 2 - 1
 
 
 
@@ -204,8 +156,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 00000059 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000075 Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000011 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000031 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -312,12 +264,11 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-nparimp  . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000075 Public STDCALL
-  ciclo  . . . . . . . . . . . .	L Near	 00000016 _TEXT	
-  Cic_par  . . . . . . . . . . .	L Near	 00000039 _TEXT	
-  nextciclo  . . . . . . . . . .	L Near	 0000003F _TEXT	
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
+valne  . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000031 Public STDCALL
+  ciclo  . . . . . . . . . . . .	L Near	 00000000 _TEXT	
+  next . . . . . . . . . . . . .	L Near	 00000025 _TEXT	
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 
 
@@ -541,7 +492,6 @@ cyan . . . . . . . . . . . . . .	Number	 00000003h
 exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
 gray . . . . . . . . . . . . . .	Number	 00000008h   
 green  . . . . . . . . . . . . .	Number	 00000002h   
-impar  . . . . . . . . . . . . .	DWord	 00000055 _DATA	
 lightBlue  . . . . . . . . . . .	Number	 00000009h   
 lightCyan  . . . . . . . . . . .	Number	 0000000Bh   
 lightGray  . . . . . . . . . . .	Number	 00000007h   
@@ -549,11 +499,7 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-mensajeimpar . . . . . . . . . .	Byte	 0000003F _DATA	
-mensajepar . . . . . . . . . . .	Byte	 0000002F _DATA	
-mensajetotal . . . . . . . . . .	Byte	 00000014 _DATA	
 mensaje  . . . . . . . . . . . .	Byte	 00000000 _DATA	
-par  . . . . . . . . . . . . . .	DWord	 00000051 _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
