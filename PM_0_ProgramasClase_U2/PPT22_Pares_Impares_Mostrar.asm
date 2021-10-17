@@ -50,7 +50,6 @@ impar dword 0
 		 nextciclo:
 	 loop ciclo
 
-
 	 mov edx, offset mensajepar
 	 call writestring
 	 mov eax, par

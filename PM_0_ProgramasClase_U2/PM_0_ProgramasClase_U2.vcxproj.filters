@@ -35,10 +35,10 @@
     <MASM Include="P25_SaltoCond_Ejemplo.asm" />
     <MASM Include="P26_SaltosComoCiclos.asm" />
     <MASM Include="P27_Ciclos_Parte2.asm" />
-    <MASM Include="PPT13_1_IMC.asm" />
+    <MASM Include="PPT13_4_Velocidad_Dist_Tiemp.asm" />
     <MASM Include="PPT13_3_Matriz_2x2_Det.asm" />
     <MASM Include="PPT13_2_Lectura_Numeros_Mayor.asm" />
-    <MASM Include="PPT13_4_Velocidad_Dist_Tiemp.asm" />
+    <MASM Include="PPT13_1_IMC.asm" />
     <MASM Include="PPT15_Fibonacci.asm" />
     <MASM Include="P28_CicloEjemplo.asm" />
     <MASM Include="P29_TablaMultiplicar.asm" />
@@ -51,18 +51,20 @@
     <MASM Include="P35_UsoVariables.asm" />
     <MASM Include="P36_UsoVariables_parte2.asm" />
     <MASM Include="Proy-DispensadorRefrescos.asm" />
-    <MASM Include="zzzzzzPPT14_Pares_1_N_Usuario.asm" />
-    <MASM Include="Det_sum_2_num_may_ter_num.asm" />
+    <MASM Include="PPT14_Pares_1_N_Usuario.asm" />
     <MASM Include="P_37_DetenerCicloUsuario.asm" />
     <MASM Include="P38_SwitchCaseSimulado.asm" />
     <MASM Include="P_39_switchAnidados.asm" />
     <MASM Include="PPT17_Sumados_numeros_mayor.asm" />
     <MASM Include="PPT18_Tabla de multiplicar.asm" />
-    <MASM Include="zzzzzzzzzzPPT19_Calificaciones.asm" />
-    <MASM Include="COPY_Proy-DispensadorRefrescos.asm" />
+    <MASM Include="PPT19_Calificaciones.asm" />
+    <MASM Include="EL_Proy-DispensadorRefrescos.asm" />
     <MASM Include="PPT20_Num_Ingresado_Val_Nega.asm" />
     <MASM Include="PPT21_Val_X_N_Cuantos.asm" />
     <MASM Include="PPT22_Pares_Impares_Mostrar.asm" />
+    <MASM Include="PPT23_NPares.asm" />
+    <MASM Include="PPT24_Manhattan.asm" />
+    <MASM Include="PPT25_Numbin_a_dec.asm" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="..\..\..\..\..\..\Irvine\Lib32\Irvine32_Library\Irvine32.obj" />

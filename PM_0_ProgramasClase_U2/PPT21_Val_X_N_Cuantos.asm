@@ -22,7 +22,6 @@ mensajen1 db "El numero ", 0
 mensajen2 db " aparece ", 0
 mensajen3 db " veces.", 0
 
-
 .code
 
 	mainXN PROC
@@ -47,11 +46,10 @@ mensajen3 db " veces.", 0
 			  call readint
 
 			  cmp ebx,eax
-			      jne ciclo
+			  jne ciclo
 			  
 			  inc count
 			  jmp ciclo
-
 
 	       next:
 			 call crlf

@@ -1,4 +1,4 @@
-TITLE Indice de Masa Corporal
+TITLE Saltos Condicionales
 
 ;DESCRPICIÓN 
 ;Objetivo: Explicación
@@ -15,33 +15,41 @@ INCLUDE Irvine32.inc
 
 .data
 ; Área de Declaración de Variables
-resp db "La velocidad es: ",0
-inputdist db "Dame la distancia: ", 0
-inputti   db "Dame el tiempo: ",0 
+mensajepeso db "Dame el peso(en kg): ",0
+mensajealtura db "Dame la altura (en Centimetros):  ",0
+respuesta db "Tu imc es: ",0
+peso dword ?
+altura dword ?
 
 .code
 
-    velocidad PROC    
+    ims PROC    
         ;Lógica del Programa
-        mov edx, offset inputti
-        call writestring
-        call readint
-        mov ebx, eax
 
-        mov edx, offset inputdist
+        mov edx, offset mensajepeso
         call writestring
         call readint
-        
+        mov ebx, 1000
+        mul ebx
+        mov peso,eax
+
+        mov edx, offset mensajealtura
+        call writestring
+        call readint
+        mov altura,eax
+        mul altura
+        mov altura,eax
+
+        mov eax,peso
         mov edx, 0
-        div ebx
-
-        mov edx, offset resp
+        div altura
+        
+        mov edx, offset respuesta
         call writestring
         call writeint
-
+  
         salir: 
         exit    
     
-    velocidad ENDP
-    
-    END velocidad
+    ims ENDP
+    END ims
