@@ -1,18 +1,19 @@
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/16/21 22:30:13
-Proyecto Refresco					     Page 1 - 1
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/17/21 18:30:23
+<Pedir n, ingresar n calificaciones e imprimir si el usuario  Page 1 - 1
 
 
-				TITLE Proyecto Refrescos
+				TITLE Pedir n, ingresar n calificaciones e imprimir si el usuario aprobó o no. Se aprueba con 7.
 
-				;DESCRPICIÓN 
-				;Objetivo: Archivo de Ejemplo
+				;DESCRPICIÓN
+				;Objetivo: Explicación
 				;
 				; Autore(s):
-				;         Sarmiento Dominguez Miguel Angel
-				; Semestre: 8vo Semestre ISC 
+				; Mtro. Alejandro Garcia
+				; Su Nombre.!
+				; Semestre: 8vo Semestre ISC
 				;FIN DESCRIPCIÓN
 
-				INCLUDE Irvine32.inc  
+				INCLUDE Irvine32.inc
 			      C ; Include file for Irvine32.lib             (Irvine32.inc)
 			      C 
 			      C ;OPTION CASEMAP:NONE		; optional: make identifiers case-sensitive
@@ -33,298 +34,63 @@ Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/16/21 22:30:13
 
  00000000			.data
 				; Área de Declaración de Variables
- 00000000 46 61 6E 74 61	msrefresco1 db "Fanta", 0
-	   00
- 00000006 43 6F 63 61 00	msrefresco2 db "Coca", 0
- 0000000B 50 65 70 73 69	msrefresco3 db "Pepsi", 0
-	   00
- 00000011 53 70 72 69 74	msrefresco4 db "Sprite", 0
-	   65 00
- 00000018 46 72 65 73 63	msrefresco5 db "Fresca", 0
-	   61 00
-
- 0000001F 54 65 63 6C 65	Teclea db "Teclea:", 0
-	   61 3A 00
- 00000027 30 20 70 61 72	mainAccion0 db "0 para salir", 0
-	   61 20 73 61 6C
-	   69 72 00
- 00000034 31 20 70 61 72	mainAccion1 db "1 para modificar el producto", 0
-	   61 20 6D 6F 64
-	   69 66 69 63 61
-	   72 20 65 6C 20
-	   70 72 6F 64 75
-	   63 74 6F 00
- 00000051 32 20 70 61 72	mainAccion2 db "2 para comprar el producto", 0
-	   61 20 63 6F 6D
-	   70 72 61 72 20
-	   65 6C 20 70 72
-	   6F 64 75 63 74
-	   6F 00
-
- 0000006C 45 73 74 6F 73	printMensaje db "Estos son los productos:", 0
-	   20 73 6F 6E 20
-	   6C 6F 73 20 70
-	   72 6F 64 75 63
-	   74 6F 73 3A 00
- 00000085 2C 20 43 6F 64	printCodigo db ", Codigo:", 0
-	   69 67 6F 3A 00
- 0000008F 2C 20 50 72 65	printPrecio db ", Precio: $", 0
-	   63 69 6F 3A 20
-	   24 00
- 0000009B 4E 6F 6D 62 72	printNombre db "Nombre:", 0
-	   65 3A 00
- 000000A3 2C 20 43 61 6E	printTotal db ", Cantidad: ", 0
-	   74 69 64 61 64
-	   3A 20 00
- 000000B0 44 61 6D 65 20	printDame db "Dame el codigo del producto: ", 0
-	   65 6C 20 63 6F
-	   64 69 67 6F 20
-	   64 65 6C 20 70
-	   72 6F 64 75 63
-	   74 6F 3A 20 00
- 000000CE 30 20 70 61 72	printAccion1 db "0 para escoger un producto",0 
-	   61 20 65 73 63
-	   6F 67 65 72 20
-	   75 6E 20 70 72
-	   6F 64 75 63 74
-	   6F 00
- 000000E9 63 75 61 6C 71	printAccion2 db "cualquier otro numero para regresarte", 0
-	   75 69 65 72 20
-	   6F 74 72 6F 20
-	   6E 75 6D 65 72
-	   6F 20 70 61 72
-	   61 20 72 65 67
-	   72 65 73 61 72
-	   74 65 00
-
- 0000010F 30 20 20 70 61	proAccion0 db "0  para escoger otro producto ", 0
-	   72 61 20 65 73
-	   63 6F 67 65 72
-	   20 6F 74 72 6F
-	   20 70 72 6F 64
-	   75 63 74 6F 20
-	   00
- 0000012E 31 20 70 61 72	proAccion1 db "1 para modificar el precio", 0
-	   61 20 6D 6F 64
-	   69 66 69 63 61
-	   72 20 65 6C 20
-	   70 72 65 63 69
-	   6F 00
- 00000149 32 20 70 61 72	proAccion2 db "2 para modificar el codigo", 0
-	   61 20 6D 6F 64
-	   69 66 69 63 61
-	   72 20 65 6C 20
-	   63 6F 64 69 67
-	   6F 00
- 00000164 33 20 70 61 72	proAccion3 db "3 para modificar la cantidad", 0
-	   61 20 6D 6F 64
-	   69 66 69 63 61
-	   72 20 6C 61 20
-	   63 61 6E 74 69
-	   64 61 64 00
- 00000181 63 75 61 6C 71	proAccion4 db "cualquier numero para salir", 0
-	   75 69 65 72 20
-	   6E 75 6D 65 72
-	   6F 20 70 61 72
-	   61 20 73 61 6C
-	   69 72 00
-
- 0000019D 4E 75 6D 65 72	Error db "Numero no valido", 0
-	   6F 20 6E 6F 20
-	   76 61 6C 69 64
-	   6F 00
-
- 000001AE 0B 0C 0D 0E 0F	arrmoney  byte  11,12,13,14,15 
- 000001B3 15 16 17 18 19	arrcode  byte  21,22,23,24,25 
- 000001B8 1F 20 21 22 23	arrtotal byte 31,32,33,34,35 
-
- 000001BD 00000006		lim dword 6
- 000001C1 00000002		two dword 2
 
  00000000			.code
+ 00000000 44 61 6D 65 20	mensajecal db "Dame el total de calificaciones: ", 0
+	   65 6C 20 74 6F
+	   74 61 6C 20 64
+	   65 20 63 61 6C
+	   69 66 69 63 61
+	   63 69 6F 6E 65
+	   73 3A 20 00
+ 00000022 44 61 6D 65 20	mensaje db "Dame una calificacion: ",0
+	   75 6E 61 20 63
+	   61 6C 69 66 69
+	   63 61 63 69 6F
+	   6E 3A 20 00
+ 0000003A 41 70 72 6F 62	mesaprobado db "Aprobaste",0
+	   61 73 74 65 00
+ 00000044 52 65 70 72 6F	mesreprobado db "Reprobaste",0
+	   62 61 73 74 65
+	   00
 
- 00000000			mainProyecto PROC
+ 0000004F			calift PROC
 
- 00000000			  MainMenu:
- 00000000  BA 0000001F R	      mov edx, offset Teclea
- 00000005  E8 00000000 E		  call writestring
- 0000000A  E8 00000000 E		  call crlf
+				;Lógica del Programa
+ 0000004F  BA 00000000 R	   mov edx,offset mensajecal
+ 00000054  E8 00000000 E	   call writestring
+ 00000059  E8 00000000 E	   call readint
+ 0000005E  8B C8		   mov ecx, eax 
+ 00000060  51			   push ecx
+ 00000061  BB 00000000		   mov ebx, 0
+				   
+ 00000066			   ciclo:
+ 00000066  BA 00000022 R	        mov edx,offset mensaje
+ 0000006B  E8 00000000 E	        call writestring
+ 00000070  E8 00000000 E	        call readint
+ 00000075  03 D8		        add ebx, eax
+ 00000077  E2 ED		  loop ciclo
 
- 0000000F  BA 00000027 R		  mov edx, offset mainAccion0
- 00000014  E8 00000000 E		  call writestring
- 00000019  E8 00000000 E		  call crlf
-					  
- 0000001E  BA 00000034 R		  mov edx, offset mainAccion1
- 00000023  E8 00000000 E		  call writestring
- 00000028  E8 00000000 E		  call crlf
-
- 0000002D  BA 00000051 R		  mov edx, offset mainAccion2
- 00000032  E8 00000000 E		  call writestring
- 00000037  E8 00000000 E		  call crlf
- 0000003C  E8 00000000 E		  call readdec
-
- 00000041  83 F8 00			  cmp eax, 0
- 00000044  0F 84 000001C1		     je Ending
- 0000004A  7C 13				 jl ErrorMain
-
- 0000004C  83 F8 02			   cmp eax, 2
- 0000004F  7F 0E			      jg ErrorMain
-						  
- 00000051  BB 00000001				  mov ebx, 1
- 00000056  74 7E				  je Imprimir
- 00000058  BB 00000000				  mov ebx, 0
- 0000005D  EB 77				  jmp Imprimir
-
- 0000005F					ErrorMain:
- 0000005F  BA 0000019D R			mov edx, offset Error
- 00000064  E8 00000000 E			call writestring
- 00000069  E8 00000000 E			call crlf
- 0000006E  EB 90				jmp MainMenu
-
- 00000070			  Productos:
- 00000070  51			         push ecx
- 00000071  BB 00000002		         mov ebx, 2
- 00000076  8B 0D 000001BD R			 mov ecx, lim
-
- 0000007C  68 00000181 R			 push offset proAccion4
- 00000081  68 00000164 R			 push offset proAccion3
- 00000086  68 00000149 R			 push offset proAccion2
- 0000008B  68 0000012E R			 push offset proAccion1
- 00000090  68 0000010F R			 push offset proAccion0
- 00000095  68 0000001F R			 push offset Teclea
-
- 0000009A					 Ciclo_ProMenu:
- 0000009A  E8 00000000 E			       call crlf
- 0000009F  5A					       pop edx
- 000000A0  E8 00000000 E				   call writestring
- 000000A5  E2 F3				 loop Ciclo_ProMenu
-
- 000000A7  59					 pop ecx
- 000000A8  E8 00000000 E			 call crlf
- 000000AD  E8 00000000 E			 call readdec
-
- 000000B2  83 F8 00				 cmp eax, 0
- 000000B5  74 1F				     je Imprimir
- 000000B7  0F 8C FFFFFF43				 jl MainMenu
-
- 000000BD  83 F8 03				 cmp eax, 3
- 000000C0  0F 8F FFFFFF3A			     jg MainMenu
- 000000C6  74 05					 je ModiCant
-
- 000000C8  83 F8 01				 cmp eax, 1
- 000000CB  74 02				      je ModiCode
-
- 000000CD					ModiCant:
- 000000CD  EB A1				   jmp Productos
-						    
- 000000CF					ModiCode:
- 000000CF  EB 9F				   jmp Productos
-
- 000000D1			  Atender:
- 000000D1  BB 00000003		      mov ebx, 3
-
- 000000D6			  Imprimir:
-
- 000000D6  E8 00000000 E	       call crlf
- 000000DB  53			       push ebx
- 000000DC  68 00000018 R	       push offset msrefresco5
- 000000E1  68 00000011 R		   push offset msrefresco4
- 000000E6  68 0000000B R		   push offset msrefresco3
- 000000EB  68 00000006 R		   push offset msrefresco2
- 000000F0  68 00000000 R		   push offset msrefresco1
-					
- 000000F5  8B 0D 000001BD R		   mov ecx, lim
- 000000FB  8B D9			   mov ebx, ecx
- 000000FD  49				   dec ecx
-					   
- 000000FE				   Ciclo:
- 000000FE  8B 3D 000001BD R		       mov edi, lim
- 00000104  2B FB				   sub edi, ebx
-
- 00000106  BA 0000009B R		       mov edx, offset printNombre
- 0000010B  E8 00000000 E			   call writestring
- 00000110  5A					   pop edx
- 00000111  E8 00000000 E			   call writestring
-
- 00000116  BA 00000085 R			   mov edx, offset printCodigo
- 0000011B  E8 00000000 E			   call writestring
- 00000120  B8 00000000				   mov eax, 0
- 00000125  8A 87 000001B3 R			   mov al,  arrcode[edi]
- 0000012B  0F B6 C0				   movzx eax, al
- 0000012E  E8 00000000 E			   call writedec
-
- 00000133  BA 0000008F R			   mov edx, offset printPrecio
- 00000138  E8 00000000 E			   call writestring
- 0000013D  B8 00000000				   mov eax, 0
- 00000142  8A 87 000001AE R			   mov al,  arrmoney[edi]
- 00000148  0F B6 C0				   movzx eax, al
- 0000014B  E8 00000000 E			   call writedec
-
- 00000150  BA 000000A3 R			   mov edx, offset printTotal
- 00000155  E8 00000000 E			   call writestring
- 0000015A  B8 00000000				   mov eax, 0
- 0000015F  8A 87 000001B8 R			   mov al,  arrtotal[edi]
- 00000165  0F B6 C0				   movzx eax, al
- 00000168  E8 00000000 E			   call writedec
- 0000016D  E8 00000000 E			    call crlf
- 00000172  8B D9					mov ebx, ecx
- 00000174  E2 88			   loop Ciclo
-
- 00000176  E8 00000000 E		   call crlf
- 0000017B  E8 00000000 E		   call crlf
- 00000180  BA 000000B0 R		   mov edx, offset printDame
- 00000185  E8 00000000 E		   call writestring
- 0000018A  E8 00000000 E		   call readint
-
- 0000018F  8B 0D 000001BD R		   mov ecx, lim
- 00000195  BA 00000000			   mov edx, 0
- 0000019A  5B				   pop ebx
- 0000019B  49				   dec ecx
-					 
- 0000019C				   Buscar:
- 0000019C  8A 91 000001B3 R		        mov dl, arrcode[ecx]
-
- 000001A2  3A C2			        cmp al, dl
- 000001A4  74 4A					  je Encontrado
-					   
- 000001A6  49						dec ecx
- 000001A7  83 F9 FF					cmp ecx, -1
- 000001AA  7F F0					jg Buscar
-					  
- 000001AC  BA 000000CE R		   mov edx, offset printAccion1
- 000001B1  E8 00000000 E		   call writestring
- 000001B6  E8 00000000 E		   call crlf
-
- 000001BB  BA 000000E9 R		   mov edx, offset printAccion2
- 000001C0  E8 00000000 E		   call writestring
- 000001C5  E8 00000000 E		   call crlf
- 000001CA  E8 00000000 E		   call readdec
-
- 000001CF  83 F8 00			    cmp eax, 0
- 000001D2  0F 84 FFFFFEFE		      je Imprimir
- 000001D8  83 FB 01			   cmp ebx, 1
- 000001DB  0F 8E FFFFFE1F		       jle MainMenu
- 000001E1  83 FB 03			   cmp ebx, 3
- 000001E4  0F 84 FFFFFEE7		       je Atender
- 000001EA  0F 8C FFFFFE80			   jl Productos
-
-
- 000001F0				   Encontrado:
- 000001F0  BA 00000000			       mov edx, 0
- 000001F5  8B C3				   mov eax, ebx
- 000001F7  F7 35 000001C1 R			   div two
-
- 000001FD  83 FA 01				   cmp edx, 1
- 00000200  0F 84 FFFFFECB			     je Atender
- 00000206  E9 FFFFFE65					 jmp Productos
-
- 0000020B			  Ending:
-				  exit
-
- 00000212			mainProyecto ENDP	
-				END mainProyecto
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/16/21 22:30:13
-Proyecto Refresco					     Symbols 2 - 1
+ 00000079  8B C3		   mov eax,ebx
+ 0000007B  5B			   pop ebx
+ 0000007C  BA 00000000		   mov edx,0
+ 00000081  F7 F3		   div ebx
+ 00000083  83 F8 07		   cmp eax,7
+ 00000086  7C 07		        jl Reprobado
+ 00000088  BA 0000003A R	        mov edx, offset mesaprobado
+ 0000008D  EB 05		        jmp Next
+				       
+ 0000008F			    Reprobado:
+ 0000008F  BA 00000044 R	        mov edx, offset mesreprobado
+ 00000094			    Next:
+ 00000094  E8 00000000 E	         call writestring
+ 00000099  E8 00000000 E	         call crlf
+ 0000009E  E8 00000000 E	         call crlf
+				exit
+ 000000AA			calift ENDP
+				END calift
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/17/21 18:30:23
+<Pedir n, ingresar n calificaciones e imprimir si el usuario  Symbols 2 - 1
 
 
 
@@ -417,8 +183,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 000001C5 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000212 Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 000000AA Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -525,19 +291,10 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-mainProyecto . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000212 Public STDCALL
-  MainMenu . . . . . . . . . . .	L Near	 00000000 _TEXT	
-  ErrorMain  . . . . . . . . . .	L Near	 0000005F _TEXT	
-  Productos  . . . . . . . . . .	L Near	 00000070 _TEXT	
-  Ciclo_ProMenu  . . . . . . . .	L Near	 0000009A _TEXT	
-  ModiCant . . . . . . . . . . .	L Near	 000000CD _TEXT	
-  ModiCode . . . . . . . . . . .	L Near	 000000CF _TEXT	
-  Atender  . . . . . . . . . . .	L Near	 000000D1 _TEXT	
-  Imprimir . . . . . . . . . . .	L Near	 000000D6 _TEXT	
-  Ciclo  . . . . . . . . . . . .	L Near	 000000FE _TEXT	
-  Buscar . . . . . . . . . . . .	L Near	 0000019C _TEXT	
-  Encontrado . . . . . . . . . .	L Near	 000001F0 _TEXT	
-  Ending . . . . . . . . . . . .	L Near	 0000020B _TEXT	
+calift . . . . . . . . . . . . .	P Near	 0000004F _TEXT	Length= 0000005B Public STDCALL
+  ciclo  . . . . . . . . . . . .	L Near	 00000066 _TEXT	
+  Reprobado  . . . . . . . . . .	L Near	 0000008F _TEXT	
+  Next . . . . . . . . . . . . .	L Near	 00000094 _TEXT	
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -571,7 +328,6 @@ ENABLE_PROCESSED_OUTPUT  . . . .	Number	 00000001h
 ENABLE_WINDOW_INPUT  . . . . . .	Number	 00000008h   
 ENABLE_WRAP_AT_EOL_OUTPUT  . . .	Number	 00000002h   
 ENHANCED_KEY . . . . . . . . . .	Number	 00000100h   
-Error  . . . . . . . . . . . . .	Byte	 0000019D _DATA	
 FALSE  . . . . . . . . . . . . .	Number	 00000000h   
 FILE_APPEND_DATA . . . . . . . .	Number	 00000004h   
 FILE_ATTRIBUTE_ARCHIVE . . . . .	Number	 00000020h   
@@ -676,7 +432,6 @@ SetConsoleTitle  . . . . . . . .	Text   	 SetConsoleTitleA
 TAB  . . . . . . . . . . . . . .	Number	 00000009h   
 TRUE . . . . . . . . . . . . . .	Number	 00000001h   
 TRUNCATE_EXISTING  . . . . . . .	Number	 00000005h   
-Teclea . . . . . . . . . . . . .	Byte	 0000001F _DATA	
 VK_11  . . . . . . . . . . . . .	Number	 000000BDh   
 VK_12  . . . . . . . . . . . . .	Number	 000000BBh   
 VK_ADD . . . . . . . . . . . . .	Number	 0000006Bh   
@@ -758,9 +513,6 @@ VK_UP  . . . . . . . . . . . . .	Number	 00000026h
 WINDOW_BUFFER_SIZE_EVENT . . . .	Number	 00000004h   
 WriteConsoleOutputCharacter  . .	Text   	 WriteConsoleOutputCharacterA
 WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
-arrcode  . . . . . . . . . . . .	Byte	 000001B3 _DATA	
-arrmoney . . . . . . . . . . . .	Byte	 000001AE _DATA	
-arrtotal . . . . . . . . . . . .	Byte	 000001B8 _DATA	
 black  . . . . . . . . . . . . .	Number	 00000000h   
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
@@ -774,31 +526,12 @@ lightGray  . . . . . . . . . . .	Number	 00000007h
 lightGreen . . . . . . . . . . .	Number	 0000000Ah   
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
-lim  . . . . . . . . . . . . . .	DWord	 000001BD _DATA	
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-mainAccion0  . . . . . . . . . .	Byte	 00000027 _DATA	
-mainAccion1  . . . . . . . . . .	Byte	 00000034 _DATA	
-mainAccion2  . . . . . . . . . .	Byte	 00000051 _DATA	
-msrefresco1  . . . . . . . . . .	Byte	 00000000 _DATA	
-msrefresco2  . . . . . . . . . .	Byte	 00000006 _DATA	
-msrefresco3  . . . . . . . . . .	Byte	 0000000B _DATA	
-msrefresco4  . . . . . . . . . .	Byte	 00000011 _DATA	
-msrefresco5  . . . . . . . . . .	Byte	 00000018 _DATA	
-printAccion1 . . . . . . . . . .	Byte	 000000CE _DATA	
-printAccion2 . . . . . . . . . .	Byte	 000000E9 _DATA	
-printCodigo  . . . . . . . . . .	Byte	 00000085 _DATA	
-printDame  . . . . . . . . . . .	Byte	 000000B0 _DATA	
-printMensaje . . . . . . . . . .	Byte	 0000006C _DATA	
-printNombre  . . . . . . . . . .	Byte	 0000009B _DATA	
-printPrecio  . . . . . . . . . .	Byte	 0000008F _DATA	
-printTotal . . . . . . . . . . .	Byte	 000000A3 _DATA	
-proAccion0 . . . . . . . . . . .	Byte	 0000010F _DATA	
-proAccion1 . . . . . . . . . . .	Byte	 0000012E _DATA	
-proAccion2 . . . . . . . . . . .	Byte	 00000149 _DATA	
-proAccion3 . . . . . . . . . . .	Byte	 00000164 _DATA	
-proAccion4 . . . . . . . . . . .	Byte	 00000181 _DATA	
+mensajecal . . . . . . . . . . .	Byte	 00000000 _TEXT	
+mensaje  . . . . . . . . . . . .	Byte	 00000022 _TEXT	
+mesaprobado  . . . . . . . . . .	Byte	 0000003A _TEXT	
+mesreprobado . . . . . . . . . .	Byte	 00000044 _TEXT	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
-two  . . . . . . . . . . . . . .	DWord	 000001C1 _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   

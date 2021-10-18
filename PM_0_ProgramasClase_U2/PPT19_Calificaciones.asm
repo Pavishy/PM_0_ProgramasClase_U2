@@ -17,8 +17,8 @@ INCLUDE Irvine32.inc
 .code
 mensajecal db "Dame el total de calificaciones: ", 0
 mensaje db "Dame una calificacion: ",0
-mesaprobado db "Aprobastes",0
-mesreprobado db "Reprobastes",0
+mesaprobado db "Aprobaste",0
+mesreprobado db "Reprobaste",0
 
 calift PROC
 
@@ -41,19 +41,17 @@ calift PROC
    pop ebx
    mov edx,0
    div ebx
-   cmp eax,6
-        
+   cmp eax,7
+        jl Reprobado
         mov edx, offset mesaprobado
         jmp Next
-        jl Reprobado
-
+       
     Reprobado:
         mov edx, offset mesreprobado
-
     Next:
          call writestring
-
-
+         call crlf
+         call crlf
 exit
 calift ENDP
 END calift
