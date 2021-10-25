@@ -3,25 +3,31 @@ TITLE Proyecto Refrescos
 ;DESCRPICIÓN 
 ;Objetivo: Archivo de Ejemplo
 ;
-; Autore(s):
-;         Sarmiento Dominguez Miguel Angel
+; Autore(s): Nosotros
+;         
 ; Semestre: 8vo Semestre ISC 
 ;FIN DESCRIPCIÓN
 
 INCLUDE Irvine32.inc  
 
 .data
+
 ; Área de Declaración de Variables
+
+venta db "Compra realizada con exito!!! :D ",0
+producto db " Gracias por su compra <3 ",0
+
+machine db "MAQUINA EXPENDEDORA DE SODAS LOS INGENIEROS",0
 msrefresco1 db "Fanta", 0
-msrefresco2 db "Coca", 0
-msrefresco3 db "Pepsi", 0
+msrefresco2 db "Escuis", 0
+msrefresco3 db "Jarritos", 0
 msrefresco4 db "Sprite", 0
 msrefresco5 db "Fresca", 0
 
-Teclea db "Teclea:", 0
-mainAccion0 db "0 para salir", 0
-mainAccion1 db "1 para modificar el producto", 0
-mainAccion2 db "2 para comprar el producto", 0
+Teclea db "Introduce: ", 0
+mainAccion0 db "0 Para salir", 0
+mainAccion1 db "1 Para modificar el producto", 0
+mainAccion2 db "2 Para comprar el producto", 0
 
 printMensaje db "Estos son los productos:", 0
 printCodigo db ", Codigo:", 0
@@ -30,15 +36,25 @@ printNombre db "Nombre:", 0
 printTotal db ", Cantidad: ", 0
 printDame db "Dame el codigo del producto: ", 0
 printAccion1 db "0 para escoger un producto",0 
-printAccion2 db "cualquier otro numero para regresarte", 0
+printAccion2 db "cualquier otro numero para regresarte al menu principal", 0
 
-proAccion0 db "0  para escoger otro producto ", 0
-proAccion1 db "1 para modificar el precio", 0
-proAccion2 db "2 para modificar el codigo", 0
-proAccion3 db "3 para modificar la cantidad", 0
-proAccion4 db "cualquier numero para salir", 0
+proAccion0 db "0 Para escoger otro producto ", 0
+proAccion1 db "1 Para modificar el precio", 0
+proAccion2 db "2 Para modificar el codigo", 0
+proAccion3 db "3 Para modificar la cantidad", 0
+proAccion4 db " Cualquier numero para salir", 0
 
+EMensaje db "Error de codigo", 0
 Error db "Numero no valido", 0
+sry db "No cuenta con el dinero suficiente",0
+
+SoliCant db "Ingresa la nueva cantidad: ", 0
+SoliCod db "Ingresa el nuevo codigo: ", 0
+SoliPrec db "Ingresa el nuevo precio: ", 0
+
+Dinero db "Ingresa tu dinero: ", 0
+Cambio db "Su cambio es de: ",0
+Pesos db " Pesos",0
 
 arrmoney  byte  11,12,13,14,15 
 arrcode  byte  21,22,23,24,25 
@@ -52,6 +68,7 @@ two dword 2
 mainProyecto PROC
 
   MainMenu:
+  	  call crlf
       mov edx, offset Teclea
 	  call writestring
 	  call crlf
@@ -75,7 +92,6 @@ mainProyecto PROC
 
 	   cmp eax, 2
 	      jg ErrorMain
-		  
 		  mov ebx, 1
 		  je Imprimir
 		  mov ebx, 0
@@ -117,20 +133,92 @@ mainProyecto PROC
 		     jg MainMenu
 			 je ModiCant
 
-		 cmp eax, 1
+		 cmp eax, 2
 		      je ModiCode
 
+		cmp eax, 1
+		      je ModiPrec
+
 		ModiCant:
+		    ;imprimir mensaje y pedir la cantidad
+			mov edx, offset SoliCant
+			call writestring
+			call readdec
+			
+			mov arrtotal[ecx], al 
+			
+			;	eax = 1646721212 (int=32,767) al = 202 (byte=256 limite) ax = 0 todos tienen = valor  0 al 255
+
+		   jmp Productos
+
+		ModiPrec:
+			mov edx, offset SoliPrec
+			call writestring
+			call readdec
+			
+			mov arrmoney[ecx], al 
+
 		   jmp Productos
 		    
 		ModiCode:
-		   jmp Productos
+			mov edx, offset SoliCod
+			call writestring
+			call readdec
+			
+			cmp eax,255
+				jg ErrorProd  ;	
+			
+			mov arrcode[ecx], al ; ecx guarda la posicion
 
-  Atender:
-      mov ebx, 3
+		   jmp Productos
+		
+		ErrorProd:
+			mov edx, offset EMensaje
+			call writestring
+			jmp Productos
+
+
+Vender: 
+		
+		call crlf
+
+		mov edx, OFFSET Dinero
+		call WriteString
+		call readdec
+			
+		sub al,arrmoney[ecx]
+
+		jl SR
+		
+		call crlf
+		call crlf
+
+		mov edx, OFFSET venta
+		call WriteString
+		call crlf
+		mov edx, OFFSET producto
+		call WriteString
+
+		call crlf
+		call crlf
+
+		mov edx, OFFSET Cambio
+		call WriteString 
+		call WriteDec
+
+		mov edx, OFFSET Pesos
+		call WriteString 
+		call crlf
+		
+		dec arrtotal[ecx]
+		call crlf
+
 
   Imprimir:
-
+  	   call crlf
+	   mov edx, offset machine
+	   call writestring
+	   call crlf   
        call crlf
        push ebx
        push offset msrefresco5
@@ -144,7 +232,8 @@ mainProyecto PROC
 	   dec ecx
 	   
 	   Ciclo:
-	       mov edi, lim
+
+		   mov edi, lim
 		   sub edi, ebx
 
 	       mov edx, offset printNombre
@@ -189,7 +278,6 @@ mainProyecto PROC
 	 
 	   Buscar:
 	        mov dl, arrcode[ecx]
-
 	        cmp al, dl
 			  je Encontrado
 	   
@@ -211,9 +299,8 @@ mainProyecto PROC
 	   cmp ebx, 1
 	       jle MainMenu
 	   cmp ebx, 3
-	       je Atender
+	       je Vender
 		   jl Productos
-
 
 	   Encontrado:
 	       mov edx, 0
@@ -221,11 +308,19 @@ mainProyecto PROC
 		   div two
 
 		   cmp edx, 1
-		     je Atender
+		     je Vender
 			 jmp Productos
+
+SR:
+	mov edx, offset sry 
+	call writestring 
+	call crlf
+	call crlf
+	JMP Vender
 
   Ending:
   exit
 
 mainProyecto ENDP	
 END mainProyecto
+

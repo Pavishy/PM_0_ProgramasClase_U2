@@ -1,19 +1,18 @@
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/17/21 18:30:23
-<Pedir n, ingresar n calificaciones e imprimir si el usuario  Page 1 - 1
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/24/21 15:56:57
+Proyecto Refresco					     Page 1 - 1
 
 
-				TITLE Pedir n, ingresar n calificaciones e imprimir si el usuario aprobó o no. Se aprueba con 7.
+				TITLE Proyecto Refrescos
 
-				;DESCRPICIÓN
-				;Objetivo: Explicación
+				;DESCRPICIÓN 
+				;Objetivo: Archivo de Ejemplo
 				;
-				; Autore(s):
-				; Mtro. Alejandro Garcia
-				; Su Nombre.!
-				; Semestre: 8vo Semestre ISC
+				; Autore(s): Nosotros
+				;         
+				; Semestre: 8vo Semestre ISC 
 				;FIN DESCRIPCIÓN
 
-				INCLUDE Irvine32.inc
+				INCLUDE Irvine32.inc  
 			      C ; Include file for Irvine32.lib             (Irvine32.inc)
 			      C 
 			      C ;OPTION CASEMAP:NONE		; optional: make identifiers case-sensitive
@@ -33,64 +32,459 @@ Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/17/21 18:30:23
 			      C 
 
  00000000			.data
+
 				; Área de Declaración de Variables
 
- 00000000			.code
- 00000000 44 61 6D 65 20	mensajecal db "Dame el total de calificaciones: ", 0
-	   65 6C 20 74 6F
-	   74 61 6C 20 64
-	   65 20 63 61 6C
+ 00000000 43 6F 6D 70 72	venta db "Compra realizada con exito!!! :D ",0
+	   61 20 72 65 61
+	   6C 69 7A 61 64
+	   61 20 63 6F 6E
+	   20 65 78 69 74
+	   6F 21 21 21 20
+	   3A 44 20 00
+ 00000022 20 47 72 61 63	producto db " Gracias por su compra <3 ",0
+	   69 61 73 20 70
+	   6F 72 20 73 75
+	   20 63 6F 6D 70
+	   72 61 20 3C 33
+	   20 00
+
+ 0000003D 4D 41 51 55 49	machine db "MAQUINA EXPENDEDORA DE SODAS LOS INGENIEROS",0
+	   4E 41 20 45 58
+	   50 45 4E 44 45
+	   44 4F 52 41 20
+	   44 45 20 53 4F
+	   44 41 53 20 4C
+	   4F 53 20 49 4E
+	   47 45 4E 49 45
+	   52 4F 53 00
+ 00000069 46 61 6E 74 61	msrefresco1 db "Fanta", 0
+	   00
+ 0000006F 45 73 63 75 69	msrefresco2 db "Escuis", 0
+	   73 00
+ 00000076 4A 61 72 72 69	msrefresco3 db "Jarritos", 0
+	   74 6F 73 00
+ 0000007F 53 70 72 69 74	msrefresco4 db "Sprite", 0
+	   65 00
+ 00000086 46 72 65 73 63	msrefresco5 db "Fresca", 0
+	   61 00
+
+ 0000008D 49 6E 74 72 6F	Teclea db "Introduce: ", 0
+	   64 75 63 65 3A
+	   20 00
+ 00000099 30 20 50 61 72	mainAccion0 db "0 Para salir", 0
+	   61 20 73 61 6C
+	   69 72 00
+ 000000A6 31 20 50 61 72	mainAccion1 db "1 Para modificar el producto", 0
+	   61 20 6D 6F 64
 	   69 66 69 63 61
-	   63 69 6F 6E 65
-	   73 3A 20 00
- 00000022 44 61 6D 65 20	mensaje db "Dame una calificacion: ",0
-	   75 6E 61 20 63
-	   61 6C 69 66 69
-	   63 61 63 69 6F
-	   6E 3A 20 00
- 0000003A 41 70 72 6F 62	mesaprobado db "Aprobaste",0
-	   61 73 74 65 00
- 00000044 52 65 70 72 6F	mesreprobado db "Reprobaste",0
-	   62 61 73 74 65
+	   72 20 65 6C 20
+	   70 72 6F 64 75
+	   63 74 6F 00
+ 000000C3 32 20 50 61 72	mainAccion2 db "2 Para comprar el producto", 0
+	   61 20 63 6F 6D
+	   70 72 61 72 20
+	   65 6C 20 70 72
+	   6F 64 75 63 74
+	   6F 00
+
+ 000000DE 45 73 74 6F 73	printMensaje db "Estos son los productos:", 0
+	   20 73 6F 6E 20
+	   6C 6F 73 20 70
+	   72 6F 64 75 63
+	   74 6F 73 3A 00
+ 000000F7 2C 20 43 6F 64	printCodigo db ", Codigo:", 0
+	   69 67 6F 3A 00
+ 00000101 2C 20 50 72 65	printPrecio db ", Precio: $", 0
+	   63 69 6F 3A 20
+	   24 00
+ 0000010D 4E 6F 6D 62 72	printNombre db "Nombre:", 0
+	   65 3A 00
+ 00000115 2C 20 43 61 6E	printTotal db ", Cantidad: ", 0
+	   74 69 64 61 64
+	   3A 20 00
+ 00000122 44 61 6D 65 20	printDame db "Dame el codigo del producto: ", 0
+	   65 6C 20 63 6F
+	   64 69 67 6F 20
+	   64 65 6C 20 70
+	   72 6F 64 75 63
+	   74 6F 3A 20 00
+ 00000140 30 20 70 61 72	printAccion1 db "0 para escoger un producto",0 
+	   61 20 65 73 63
+	   6F 67 65 72 20
+	   75 6E 20 70 72
+	   6F 64 75 63 74
+	   6F 00
+ 0000015B 63 75 61 6C 71	printAccion2 db "cualquier otro numero para regresarte al menu principal", 0
+	   75 69 65 72 20
+	   6F 74 72 6F 20
+	   6E 75 6D 65 72
+	   6F 20 70 61 72
+	   61 20 72 65 67
+	   72 65 73 61 72
+	   74 65 20 61 6C
+	   20 6D 65 6E 75
+	   20 70 72 69 6E
+	   63 69 70 61 6C
 	   00
 
- 0000004F			calift PROC
+ 00000193 30 20 50 61 72	proAccion0 db "0 Para escoger otro producto ", 0
+	   61 20 65 73 63
+	   6F 67 65 72 20
+	   6F 74 72 6F 20
+	   70 72 6F 64 75
+	   63 74 6F 20 00
+ 000001B1 31 20 50 61 72	proAccion1 db "1 Para modificar el precio", 0
+	   61 20 6D 6F 64
+	   69 66 69 63 61
+	   72 20 65 6C 20
+	   70 72 65 63 69
+	   6F 00
+ 000001CC 32 20 50 61 72	proAccion2 db "2 Para modificar el codigo", 0
+	   61 20 6D 6F 64
+	   69 66 69 63 61
+	   72 20 65 6C 20
+	   63 6F 64 69 67
+	   6F 00
+ 000001E7 33 20 50 61 72	proAccion3 db "3 Para modificar la cantidad", 0
+	   61 20 6D 6F 64
+	   69 66 69 63 61
+	   72 20 6C 61 20
+	   63 61 6E 74 69
+	   64 61 64 00
+ 00000204 20 43 75 61 6C	proAccion4 db " Cualquier numero para salir", 0
+	   71 75 69 65 72
+	   20 6E 75 6D 65
+	   72 6F 20 70 61
+	   72 61 20 73 61
+	   6C 69 72 00
 
-				;Lógica del Programa
- 0000004F  BA 00000000 R	   mov edx,offset mensajecal
- 00000054  E8 00000000 E	   call writestring
- 00000059  E8 00000000 E	   call readint
- 0000005E  8B C8		   mov ecx, eax 
- 00000060  51			   push ecx
- 00000061  BB 00000000		   mov ebx, 0
-				   
- 00000066			   ciclo:
- 00000066  BA 00000022 R	        mov edx,offset mensaje
- 0000006B  E8 00000000 E	        call writestring
- 00000070  E8 00000000 E	        call readint
- 00000075  03 D8		        add ebx, eax
- 00000077  E2 ED		  loop ciclo
+ 00000221 45 72 72 6F 72	EMensaje db "Error de codigo", 0
+	   20 64 65 20 63
+	   6F 64 69 67 6F
+	   00
+ 00000231 4E 75 6D 65 72	Error db "Numero no valido", 0
+	   6F 20 6E 6F 20
+	   76 61 6C 69 64
+	   6F 00
+ 00000242 4E 6F 20 63 75	sry db "No cuenta con el dinero suficiente",0
+	   65 6E 74 61 20
+	   63 6F 6E 20 65
+	   6C 20 64 69 6E
+	   65 72 6F 20 73
+	   75 66 69 63 69
+	   65 6E 74 65 00
 
- 00000079  8B C3		   mov eax,ebx
- 0000007B  5B			   pop ebx
- 0000007C  BA 00000000		   mov edx,0
- 00000081  F7 F3		   div ebx
- 00000083  83 F8 07		   cmp eax,7
- 00000086  7C 07		        jl Reprobado
- 00000088  BA 0000003A R	        mov edx, offset mesaprobado
- 0000008D  EB 05		        jmp Next
-				       
- 0000008F			    Reprobado:
- 0000008F  BA 00000044 R	        mov edx, offset mesreprobado
- 00000094			    Next:
- 00000094  E8 00000000 E	         call writestring
- 00000099  E8 00000000 E	         call crlf
- 0000009E  E8 00000000 E	         call crlf
-				exit
- 000000AA			calift ENDP
-				END calift
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/17/21 18:30:23
-<Pedir n, ingresar n calificaciones e imprimir si el usuario  Symbols 2 - 1
+ 00000265 49 6E 67 72 65	SoliCant db "Ingresa la nueva cantidad: ", 0
+	   73 61 20 6C 61
+	   20 6E 75 65 76
+	   61 20 63 61 6E
+	   74 69 64 61 64
+	   3A 20 00
+ 00000281 49 6E 67 72 65	SoliCod db "Ingresa el nuevo codigo: ", 0
+	   73 61 20 65 6C
+	   20 6E 75 65 76
+	   6F 20 63 6F 64
+	   69 67 6F 3A 20
+	   00
+ 0000029B 49 6E 67 72 65	SoliPrec db "Ingresa el nuevo precio: ", 0
+	   73 61 20 65 6C
+	   20 6E 75 65 76
+	   6F 20 70 72 65
+	   63 69 6F 3A 20
+	   00
+
+ 000002B5 49 6E 67 72 65	Dinero db "Ingresa tu dinero: ", 0
+	   73 61 20 74 75
+	   20 64 69 6E 65
+	   72 6F 3A 20 00
+ 000002C9 53 75 20 63 61	Cambio db "Su cambio es de: ",0
+	   6D 62 69 6F 20
+	   65 73 20 64 65
+	   3A 20 00
+ 000002DB 20 50 65 73 6F	Pesos db " Pesos",0
+	   73 00
+
+ 000002E2 0B 0C 0D 0E 0F	arrmoney  byte  11,12,13,14,15 
+ 000002E7 15 16 17 18 19	arrcode  byte  21,22,23,24,25 
+ 000002EC 1F 20 21 22 23	arrtotal byte 31,32,33,34,35 
+
+ 000002F1 00000006		lim dword 6
+ 000002F5 00000002		two dword 2
+
+ 00000000			.code
+
+ 00000000			mainProyecto PROC
+
+ 00000000			  MainMenu:
+ 00000000  E8 00000000 E	  	  call crlf
+ 00000005  BA 0000008D R	      mov edx, offset Teclea
+ 0000000A  E8 00000000 E		  call writestring
+ 0000000F  E8 00000000 E		  call crlf
+
+ 00000014  BA 00000099 R		  mov edx, offset mainAccion0
+ 00000019  E8 00000000 E		  call writestring
+ 0000001E  E8 00000000 E		  call crlf
+					  
+ 00000023  BA 000000A6 R		  mov edx, offset mainAccion1
+ 00000028  E8 00000000 E		  call writestring
+ 0000002D  E8 00000000 E		  call crlf
+
+ 00000032  BA 000000C3 R		  mov edx, offset mainAccion2
+ 00000037  E8 00000000 E		  call writestring
+ 0000003C  E8 00000000 E		  call crlf
+ 00000041  E8 00000000 E		  call readdec
+
+ 00000046  83 F8 00			  cmp eax, 0
+ 00000049  0F 84 000002CC		     je Ending
+ 0000004F  7C 1A				 jl ErrorMain
+
+ 00000051  83 F8 02			   cmp eax, 2
+ 00000054  7F 15			      jg ErrorMain
+ 00000056  BB 00000001				  mov ebx, 1
+ 0000005B  0F 84 00000158			  je Imprimir
+ 00000061  BB 00000000				  mov ebx, 0
+ 00000066  E9 0000014E				  jmp Imprimir
+
+ 0000006B					ErrorMain:
+ 0000006B  BA 00000231 R			mov edx, offset Error
+ 00000070  E8 00000000 E			call writestring
+ 00000075  E8 00000000 E			call crlf
+ 0000007A  EB 84				jmp MainMenu
+
+ 0000007C			  Productos:
+ 0000007C  51			         push ecx
+ 0000007D  BB 00000002		         mov ebx, 2
+ 00000082  8B 0D 000002F1 R			 mov ecx, lim
+
+ 00000088  68 00000204 R			 push offset proAccion4
+ 0000008D  68 000001E7 R			 push offset proAccion3
+ 00000092  68 000001CC R			 push offset proAccion2
+ 00000097  68 000001B1 R			 push offset proAccion1
+ 0000009C  68 00000193 R			 push offset proAccion0
+ 000000A1  68 0000008D R			 push offset Teclea
+
+ 000000A6					 Ciclo_ProMenu:
+ 000000A6  E8 00000000 E			       call crlf
+ 000000AB  5A					       pop edx
+ 000000AC  E8 00000000 E				   call writestring
+ 000000B1  E2 F3				 loop Ciclo_ProMenu
+
+ 000000B3  59					 pop ecx
+ 000000B4  E8 00000000 E			 call crlf
+ 000000B9  E8 00000000 E			 call readdec
+
+ 000000BE  83 F8 00				 cmp eax, 0
+ 000000C1  0F 84 000000F2			     je Imprimir
+ 000000C7  0F 8C FFFFFF33				 jl MainMenu
+
+ 000000CD  83 F8 03				 cmp eax, 3
+ 000000D0  0F 8F FFFFFF2A			     jg MainMenu
+ 000000D6  74 0A					 je ModiCant
+
+ 000000D8  83 F8 02				 cmp eax, 2
+ 000000DB  74 36				      je ModiCode
+
+ 000000DD  83 F8 01				cmp eax, 1
+ 000000E0  74 17				      je ModiPrec
+
+ 000000E2					ModiCant:
+						    ;imprimir mensaje y pedir la cantidad
+ 000000E2  BA 00000265 R				mov edx, offset SoliCant
+ 000000E7  E8 00000000 E				call writestring
+ 000000EC  E8 00000000 E				call readdec
+							
+ 000000F1  88 81 000002EC R				mov arrtotal[ecx], al 
+							;	eax = 1646721212 (int=32,767) al = 202 (byte=256 limite) ax = 0 todos tienen = valor  0 al 255
+
+ 000000F7  EB 83				   jmp Productos
+
+ 000000F9					ModiPrec:
+ 000000F9  BA 0000029B R				mov edx, offset SoliPrec
+ 000000FE  E8 00000000 E				call writestring
+ 00000103  E8 00000000 E				call readdec
+							
+ 00000108  88 81 000002E2 R				mov arrmoney[ecx], al 
+
+ 0000010E  E9 FFFFFF69				   jmp Productos
+						    
+ 00000113					ModiCode:
+ 00000113  BA 00000281 R				mov edx, offset SoliCod
+ 00000118  E8 00000000 E				call writestring
+ 0000011D  E8 00000000 E				call readdec
+							
+ 00000122  3D 000000FF					cmp eax,255
+ 00000127  7F 0B						jg ErrorProd  ;	
+							
+ 00000129  88 81 000002E7 R				mov arrcode[ecx], al ; ecx guarda la posicion
+
+ 0000012F  E9 FFFFFF48				   jmp Productos
+						
+ 00000134					ErrorProd:
+ 00000134  BA 00000221 R				mov edx, offset EMensaje
+ 00000139  E8 00000000 E				call writestring
+ 0000013E  E9 FFFFFF39					jmp Productos
+
+
+ 00000143			Vender: 
+
+				;comprar producto ;mov ebx, 3
+						
+						;ya esta seleccionado el codigo del producto
+ 00000143  E8 00000000 E			call crlf
+
+ 00000148  BA 000002B5 R			mov edx, OFFSET Dinero
+ 0000014D  E8 00000000 E			call WriteString
+ 00000152  E8 00000000 E			call readdec
+					
+						;hacer la resta del dinero con lo que ya la maquina cuenta de precio
+						
+ 00000157  2A 81 000002E2 R			sub al,arrmoney[ecx]
+
+ 0000015D  0F 8C 0000019F			jl SR
+						
+						;si no hay dinero suficiente
+						
+ 00000163  E8 00000000 E			call crlf
+ 00000168  E8 00000000 E			call crlf
+
+ 0000016D  BA 00000000 R			mov edx, OFFSET venta
+ 00000172  E8 00000000 E			call WriteString
+ 00000177  E8 00000000 E			call crlf
+ 0000017C  BA 00000022 R			mov edx, OFFSET producto
+ 00000181  E8 00000000 E			call WriteString
+
+ 00000186  E8 00000000 E			call crlf
+ 0000018B  E8 00000000 E			call crlf
+
+ 00000190  BA 000002C9 R			mov edx, OFFSET Cambio
+ 00000195  E8 00000000 E			call WriteString 
+
+						;mostrar el cambio de la resta
+ 0000019A  E8 00000000 E			call WriteDec
+
+ 0000019F  BA 000002DB R			mov edx, OFFSET Pesos
+ 000001A4  E8 00000000 E			call WriteString 
+ 000001A9  E8 00000000 E			call crlf
+
+						;contador del producto bajando modificar
+						
+ 000001AE  FE 89 000002EC R			dec arrtotal[ecx]
+ 000001B4  E8 00000000 E			call crlf
+
+
+ 000001B9			  Imprimir:
+ 000001B9  E8 00000000 E	  	   call crlf
+ 000001BE  BA 0000003D R		   mov edx, offset machine
+ 000001C3  E8 00000000 E		   call writestring
+ 000001C8  E8 00000000 E		   call crlf   
+ 000001CD  E8 00000000 E	       call crlf
+ 000001D2  53			       push ebx
+ 000001D3  68 00000086 R	       push offset msrefresco5
+ 000001D8  68 0000007F R		   push offset msrefresco4
+ 000001DD  68 00000076 R		   push offset msrefresco3
+ 000001E2  68 0000006F R		   push offset msrefresco2
+ 000001E7  68 00000069 R		   push offset msrefresco1
+					
+ 000001EC  8B 0D 000002F1 R		   mov ecx, lim
+ 000001F2  8B D9			   mov ebx, ecx
+ 000001F4  49				   dec ecx
+					   
+ 000001F5				   Ciclo:
+
+ 000001F5  8B 3D 000002F1 R			   mov edi, lim
+ 000001FB  2B FB				   sub edi, ebx
+
+ 000001FD  BA 0000010D R		       mov edx, offset printNombre
+ 00000202  E8 00000000 E			   call writestring
+ 00000207  5A					   pop edx
+ 00000208  E8 00000000 E			   call writestring
+
+ 0000020D  BA 000000F7 R			   mov edx, offset printCodigo
+ 00000212  E8 00000000 E			   call writestring
+ 00000217  B8 00000000				   mov eax, 0
+ 0000021C  8A 87 000002E7 R			   mov al,  arrcode[edi]
+ 00000222  0F B6 C0				   movzx eax, al
+ 00000225  E8 00000000 E			   call writedec
+
+ 0000022A  BA 00000101 R			   mov edx, offset printPrecio
+ 0000022F  E8 00000000 E			   call writestring
+ 00000234  B8 00000000				   mov eax, 0
+ 00000239  8A 87 000002E2 R			   mov al,  arrmoney[edi]
+ 0000023F  0F B6 C0				   movzx eax, al
+ 00000242  E8 00000000 E			   call writedec
+
+ 00000247  BA 00000115 R			   mov edx, offset printTotal
+ 0000024C  E8 00000000 E			   call writestring
+ 00000251  B8 00000000				   mov eax, 0
+ 00000256  8A 87 000002EC R			   mov al,  arrtotal[edi]
+ 0000025C  0F B6 C0				   movzx eax, al
+ 0000025F  E8 00000000 E			   call writedec
+ 00000264  E8 00000000 E			    call crlf
+ 00000269  8B D9					mov ebx, ecx
+ 0000026B  E2 88			   loop Ciclo
+
+ 0000026D  E8 00000000 E		   call crlf
+ 00000272  E8 00000000 E		   call crlf
+ 00000277  BA 00000122 R		   mov edx, offset printDame
+ 0000027C  E8 00000000 E		   call writestring
+ 00000281  E8 00000000 E		   call readint
+
+ 00000286  8B 0D 000002F1 R		   mov ecx, lim
+ 0000028C  BA 00000000			   mov edx, 0
+ 00000291  5B				   pop ebx
+ 00000292  49				   dec ecx
+					 
+ 00000293				   Buscar:
+ 00000293  8A 91 000002E7 R		        mov dl, arrcode[ecx]
+ 00000299  3A C2			        cmp al, dl
+ 0000029B  74 4A					  je Encontrado
+					   
+ 0000029D  49						dec ecx
+ 0000029E  83 F9 FF					cmp ecx, -1
+ 000002A1  7F F0					jg Buscar
+					  
+ 000002A3  BA 00000140 R		   mov edx, offset printAccion1
+ 000002A8  E8 00000000 E		   call writestring
+ 000002AD  E8 00000000 E		   call crlf
+
+ 000002B2  BA 0000015B R		   mov edx, offset printAccion2
+ 000002B7  E8 00000000 E		   call writestring
+ 000002BC  E8 00000000 E		   call crlf
+ 000002C1  E8 00000000 E		   call readdec
+
+ 000002C6  83 F8 00			    cmp eax, 0
+ 000002C9  0F 84 FFFFFEEA		      je Imprimir
+ 000002CF  83 FB 01			   cmp ebx, 1
+ 000002D2  0F 8E FFFFFD28		       jle MainMenu
+ 000002D8  83 FB 03			   cmp ebx, 3
+ 000002DB  0F 84 FFFFFE62		       je Vender
+ 000002E1  0F 8C FFFFFD95			   jl Productos
+
+ 000002E7				   Encontrado:
+ 000002E7  BA 00000000			       mov edx, 0
+ 000002EC  8B C3				   mov eax, ebx
+ 000002EE  F7 35 000002F5 R			   div two
+
+ 000002F4  83 FA 01				   cmp edx, 1
+ 000002F7  0F 84 FFFFFE46			     je Vender
+ 000002FD  E9 FFFFFD7A					 jmp Productos
+
+ 00000302			SR:
+ 00000302  BA 00000242 R		mov edx, offset sry 
+ 00000307  E8 00000000 E		call writestring 
+ 0000030C  E8 00000000 E		call crlf
+ 00000311  E8 00000000 E		call crlf
+ 00000316  E9 FFFFFE28			JMP Vender
+
+ 0000031B			  Ending:
+				  exit
+
+ 00000322			mainProyecto ENDP	
+				END mainProyecto
+
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/24/21 15:56:57
+Proyecto Refresco					     Symbols 2 - 1
 
 
 
@@ -183,8 +577,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 000000AA Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 000002F9 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000322 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -291,10 +685,22 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-calift . . . . . . . . . . . . .	P Near	 0000004F _TEXT	Length= 0000005B Public STDCALL
-  ciclo  . . . . . . . . . . . .	L Near	 00000066 _TEXT	
-  Reprobado  . . . . . . . . . .	L Near	 0000008F _TEXT	
-  Next . . . . . . . . . . . . .	L Near	 00000094 _TEXT	
+mainProyecto . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000322 Public STDCALL
+  MainMenu . . . . . . . . . . .	L Near	 00000000 _TEXT	
+  ErrorMain  . . . . . . . . . .	L Near	 0000006B _TEXT	
+  Productos  . . . . . . . . . .	L Near	 0000007C _TEXT	
+  Ciclo_ProMenu  . . . . . . . .	L Near	 000000A6 _TEXT	
+  ModiCant . . . . . . . . . . .	L Near	 000000E2 _TEXT	
+  ModiPrec . . . . . . . . . . .	L Near	 000000F9 _TEXT	
+  ModiCode . . . . . . . . . . .	L Near	 00000113 _TEXT	
+  ErrorProd  . . . . . . . . . .	L Near	 00000134 _TEXT	
+  Vender . . . . . . . . . . . .	L Near	 00000143 _TEXT	
+  Imprimir . . . . . . . . . . .	L Near	 000001B9 _TEXT	
+  Ciclo  . . . . . . . . . . . .	L Near	 000001F5 _TEXT	
+  Buscar . . . . . . . . . . . .	L Near	 00000293 _TEXT	
+  Encontrado . . . . . . . . . .	L Near	 000002E7 _TEXT	
+  SR . . . . . . . . . . . . . .	L Near	 00000302 _TEXT	
+  Ending . . . . . . . . . . . .	L Near	 0000031B _TEXT	
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -318,8 +724,11 @@ CAPSLOCK_ON  . . . . . . . . . .	Number	 00000080h
 CREATE_ALWAYS  . . . . . . . . .	Number	 00000002h   
 CREATE_NEW . . . . . . . . . . .	Number	 00000001h   
 CTRL_MASK  . . . . . . . . . . .	Number	 0000000Ch   
+Cambio . . . . . . . . . . . . .	Byte	 000002C9 _DATA	
 CreateFile . . . . . . . . . . .	Text   	 CreateFileA
 DO_NOT_SHARE . . . . . . . . . .	Number	 00000000h   
+Dinero . . . . . . . . . . . . .	Byte	 000002B5 _DATA	
+EMensaje . . . . . . . . . . . .	Byte	 00000221 _DATA	
 ENABLE_ECHO_INPUT  . . . . . . .	Number	 00000004h   
 ENABLE_LINE_INPUT  . . . . . . .	Number	 00000002h   
 ENABLE_MOUSE_INPUT . . . . . . .	Number	 00000010h   
@@ -328,6 +737,7 @@ ENABLE_PROCESSED_OUTPUT  . . . .	Number	 00000001h
 ENABLE_WINDOW_INPUT  . . . . . .	Number	 00000008h   
 ENABLE_WRAP_AT_EOL_OUTPUT  . . .	Number	 00000002h   
 ENHANCED_KEY . . . . . . . . . .	Number	 00000100h   
+Error  . . . . . . . . . . . . .	Byte	 00000231 _DATA	
 FALSE  . . . . . . . . . . . . .	Number	 00000000h   
 FILE_APPEND_DATA . . . . . . . .	Number	 00000004h   
 FILE_ATTRIBUTE_ARCHIVE . . . . .	Number	 00000020h   
@@ -418,6 +828,7 @@ NUMLOCK_ON . . . . . . . . . . .	Number	 00000020h
 OPEN_ALWAYS  . . . . . . . . . .	Number	 00000004h   
 OPEN_EXISTING  . . . . . . . . .	Number	 00000003h   
 PeekConsoleInput . . . . . . . .	Text   	 PeekConsoleInputA
+Pesos  . . . . . . . . . . . . .	Byte	 000002DB _DATA	
 RIGHT_ALT_PRESSED  . . . . . . .	Number	 00000001h   
 RIGHT_CTRL_PRESSED . . . . . . .	Number	 00000004h   
 ReadConsoleInput . . . . . . . .	Text   	 ReadConsoleInputA
@@ -429,9 +840,13 @@ STD_ERROR_HANDLE . . . . . . . .	Number	 -0000000Ch
 STD_INPUT_HANDLE . . . . . . . .	Number	 -0000000Ah   
 STD_OUTPUT_HANDLE  . . . . . . .	Number	 -0000000Bh   
 SetConsoleTitle  . . . . . . . .	Text   	 SetConsoleTitleA
+SoliCant . . . . . . . . . . . .	Byte	 00000265 _DATA	
+SoliCod  . . . . . . . . . . . .	Byte	 00000281 _DATA	
+SoliPrec . . . . . . . . . . . .	Byte	 0000029B _DATA	
 TAB  . . . . . . . . . . . . . .	Number	 00000009h   
 TRUE . . . . . . . . . . . . . .	Number	 00000001h   
 TRUNCATE_EXISTING  . . . . . . .	Number	 00000005h   
+Teclea . . . . . . . . . . . . .	Byte	 0000008D _DATA	
 VK_11  . . . . . . . . . . . . .	Number	 000000BDh   
 VK_12  . . . . . . . . . . . . .	Number	 000000BBh   
 VK_ADD . . . . . . . . . . . . .	Number	 0000006Bh   
@@ -513,6 +928,9 @@ VK_UP  . . . . . . . . . . . . .	Number	 00000026h
 WINDOW_BUFFER_SIZE_EVENT . . . .	Number	 00000004h   
 WriteConsoleOutputCharacter  . .	Text   	 WriteConsoleOutputCharacterA
 WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
+arrcode  . . . . . . . . . . . .	Byte	 000002E7 _DATA	
+arrmoney . . . . . . . . . . . .	Byte	 000002E2 _DATA	
+arrtotal . . . . . . . . . . . .	Byte	 000002EC _DATA	
 black  . . . . . . . . . . . . .	Number	 00000000h   
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
@@ -526,12 +944,35 @@ lightGray  . . . . . . . . . . .	Number	 00000007h
 lightGreen . . . . . . . . . . .	Number	 0000000Ah   
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
+lim  . . . . . . . . . . . . . .	DWord	 000002F1 _DATA	
+machine  . . . . . . . . . . . .	Byte	 0000003D _DATA	
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-mensajecal . . . . . . . . . . .	Byte	 00000000 _TEXT	
-mensaje  . . . . . . . . . . . .	Byte	 00000022 _TEXT	
-mesaprobado  . . . . . . . . . .	Byte	 0000003A _TEXT	
-mesreprobado . . . . . . . . . .	Byte	 00000044 _TEXT	
+mainAccion0  . . . . . . . . . .	Byte	 00000099 _DATA	
+mainAccion1  . . . . . . . . . .	Byte	 000000A6 _DATA	
+mainAccion2  . . . . . . . . . .	Byte	 000000C3 _DATA	
+msrefresco1  . . . . . . . . . .	Byte	 00000069 _DATA	
+msrefresco2  . . . . . . . . . .	Byte	 0000006F _DATA	
+msrefresco3  . . . . . . . . . .	Byte	 00000076 _DATA	
+msrefresco4  . . . . . . . . . .	Byte	 0000007F _DATA	
+msrefresco5  . . . . . . . . . .	Byte	 00000086 _DATA	
+printAccion1 . . . . . . . . . .	Byte	 00000140 _DATA	
+printAccion2 . . . . . . . . . .	Byte	 0000015B _DATA	
+printCodigo  . . . . . . . . . .	Byte	 000000F7 _DATA	
+printDame  . . . . . . . . . . .	Byte	 00000122 _DATA	
+printMensaje . . . . . . . . . .	Byte	 000000DE _DATA	
+printNombre  . . . . . . . . . .	Byte	 0000010D _DATA	
+printPrecio  . . . . . . . . . .	Byte	 00000101 _DATA	
+printTotal . . . . . . . . . . .	Byte	 00000115 _DATA	
+proAccion0 . . . . . . . . . . .	Byte	 00000193 _DATA	
+proAccion1 . . . . . . . . . . .	Byte	 000001B1 _DATA	
+proAccion2 . . . . . . . . . . .	Byte	 000001CC _DATA	
+proAccion3 . . . . . . . . . . .	Byte	 000001E7 _DATA	
+proAccion4 . . . . . . . . . . .	Byte	 00000204 _DATA	
+producto . . . . . . . . . . . .	Byte	 00000022 _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
+sry  . . . . . . . . . . . . . .	Byte	 00000242 _DATA	
+two  . . . . . . . . . . . . . .	DWord	 000002F5 _DATA	
+venta  . . . . . . . . . . . . .	Byte	 00000000 _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   
