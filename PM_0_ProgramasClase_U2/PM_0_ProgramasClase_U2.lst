@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/24/21 15:56:57
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/26/21 19:19:22
 Proyecto Refresco					     Page 1 - 1
 
 
@@ -295,7 +295,6 @@ Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/24/21 15:56:57
  000000EC  E8 00000000 E				call readdec
 							
  000000F1  88 81 000002EC R				mov arrtotal[ecx], al 
-							;	eax = 1646721212 (int=32,767) al = 202 (byte=256 limite) ax = 0 todos tienen = valor  0 al 255
 
  000000F7  EB 83				   jmp Productos
 
@@ -327,23 +326,16 @@ Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/24/21 15:56:57
 
 
  00000143			Vender: 
-
-				;comprar producto ;mov ebx, 3
 						
-						;ya esta seleccionado el codigo del producto
  00000143  E8 00000000 E			call crlf
 
  00000148  BA 000002B5 R			mov edx, OFFSET Dinero
  0000014D  E8 00000000 E			call WriteString
  00000152  E8 00000000 E			call readdec
-					
-						;hacer la resta del dinero con lo que ya la maquina cuenta de precio
-						
+							
  00000157  2A 81 000002E2 R			sub al,arrmoney[ecx]
 
  0000015D  0F 8C 0000019F			jl SR
-						
-						;si no hay dinero suficiente
 						
  00000163  E8 00000000 E			call crlf
  00000168  E8 00000000 E			call crlf
@@ -359,15 +351,11 @@ Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/24/21 15:56:57
 
  00000190  BA 000002C9 R			mov edx, OFFSET Cambio
  00000195  E8 00000000 E			call WriteString 
-
-						;mostrar el cambio de la resta
  0000019A  E8 00000000 E			call WriteDec
 
  0000019F  BA 000002DB R			mov edx, OFFSET Pesos
  000001A4  E8 00000000 E			call WriteString 
  000001A9  E8 00000000 E			call crlf
-
-						;contador del producto bajando modificar
 						
  000001AE  FE 89 000002EC R			dec arrtotal[ecx]
  000001B4  E8 00000000 E			call crlf
@@ -483,7 +471,7 @@ Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/24/21 15:56:57
  00000322			mainProyecto ENDP	
 				END mainProyecto
 
-Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/24/21 15:56:57
+Microsoft (R) Macro Assembler Version 14.29.30133.0	    10/26/21 19:19:22
 Proyecto Refresco					     Symbols 2 - 1
 
 

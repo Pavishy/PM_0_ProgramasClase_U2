@@ -146,8 +146,6 @@ mainProyecto PROC
 			call readdec
 			
 			mov arrtotal[ecx], al 
-			
-			;	eax = 1646721212 (int=32,767) al = 202 (byte=256 limite) ax = 0 todos tienen = valor  0 al 255
 
 		   jmp Productos
 
